@@ -1,0 +1,189 @@
+.footer{
+
+    width:100%;
+
+    background:#050612;
+
+    border-top:1px solid rgba(123,44,255,.12);
+
+    padding:90px 0 35px;
+}
+
+.footer-container{
+
+    width:92%;
+
+    max-width:1500px;
+
+    margin:auto;
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1fr;
+
+    gap:70px;
+}
+
+.footer-brand{
+
+    max-width:420px;
+}
+
+.footer-logo {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    margin-bottom: 22px;
+}
+
+.footer-logo-img {
+    width: 58px;
+    height: 58px;
+
+    display: block;
+
+    object-fit: contain;
+
+    background: transparent;
+
+    filter:
+        drop-shadow(0 0 8px rgba(184, 76, 255, 0.35))
+        drop-shadow(0 0 18px rgba(123, 44, 255, 0.18));
+}
+
+.footer-brand h2{
+
+    color:white;
+
+    font-size:34px;
+
+    margin-bottom:18px;
+}
+
+.footer-brand span {
+    background:
+        linear-gradient(
+            90deg,
+            #ff3fd8,
+            #9b3cff,
+            #20cfff
+        );
+
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+
+    background-clip: text;
+}
+
+.footer-brand p{
+
+    color:#9fa6c2;
+
+    line-height:1.8;
+
+    font-size:16px;
+}
+
+.footer-column{
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:16px;
+}
+
+.footer-column h3{
+
+    color:white;
+
+    margin-bottom:14px;
+
+    font-size:20px;
+}
+
+.footer-column a{
+
+    color:#b5b8cf;
+
+    text-decoration:none;
+
+    transition:.25s;
+}
+
+.footer-column a:hover{
+
+    color:#9b4dff;
+}
+
+.footer-bottom{
+
+    width:92%;
+
+    max-width:1500px;
+
+    margin:70px auto 0;
+
+    padding-top:30px;
+
+    border-top:1px solid rgba(255,255,255,.06);
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+}
+
+.footer-bottom p{
+
+    color:#8d91ab;
+}
+
+.footer-social{
+
+    display:flex;
+
+    gap:28px;
+
+    color:#b5b8cf;
+
+    cursor:pointer;
+}
+
+.footer-social span:hover{
+
+    color:#9b4dff;
+}
+
+@media(max-width:1000px){
+
+.footer-container{
+
+grid-template-columns:1fr 1fr;
+
+}
+
+.footer-bottom{
+
+flex-direction:column;
+
+gap:25px;
+
+}
+
+}
+
+@media(max-width:700px){
+
+.footer-container{
+
+grid-template-columns:1fr;
+
+}
+
+}

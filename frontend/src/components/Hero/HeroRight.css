@@ -1,0 +1,286 @@
+.hero-right{
+
+    position:relative;
+
+    width:100%;
+    height:720px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    overflow:hidden;
+}
+
+/* Background Glow */
+
+.hero-glow{
+
+    position:absolute;
+
+    width:520px;
+    height:520px;
+
+    border-radius:50%;
+
+    background:radial-gradient(
+        circle,
+        rgba(128,65,255,.45) 0%,
+        rgba(82,80,255,.18) 45%,
+        transparent 75%
+    );
+
+    filter:blur(40px);
+}
+
+/* Center Circle */
+
+.hero-circle{
+
+    width:360px;
+    height:360px;
+
+    border-radius:50%;
+
+    background:rgba(20,18,40,.75);
+
+    border:1px solid rgba(130,70,255,.35);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    box-shadow:
+    0 0 80px rgba(110,70,255,.35);
+
+    position:relative;
+}
+
+/* Shield */
+
+.shield-placeholder{
+
+    width:150px;
+    height:150px;
+
+    border-radius:26px;
+
+    background:linear-gradient(
+        180deg,
+        #7b2cff,
+        #496cff
+    );
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-size:74px;
+
+    color:white;
+
+    box-shadow:
+    0 0 40px rgba(120,60,255,.6);
+}
+
+/* Cards */
+
+.floating-card{
+
+    position:absolute;
+
+    min-width:180px;
+
+    padding:18px;
+
+    background:rgba(17,18,40,.85);
+
+    border:1px solid rgba(130,70,255,.35);
+
+    border-radius:18px;
+
+    backdrop-filter:blur(14px);
+
+    color:white;
+
+    box-shadow:
+    0 0 25px rgba(120,60,255,.18);
+}
+
+.card-title{
+
+    font-size:14px;
+
+    color:#9ea5c5;
+
+    margin-bottom:8px;
+}
+
+.card-value{
+
+    font-size:20px;
+
+    font-weight:700;
+}
+
+.critical{
+
+    color:#ff6262;
+}
+
+/* Positions */
+
+.card-top{
+
+    top:40px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+.card-left{
+
+    left:10px;
+    top:280px;
+}
+
+.card-right{
+
+    right:10px;
+    top:260px;
+}
+
+.card-bottom{
+
+    bottom:40px;
+    left:50%;
+
+    transform:translateX(-50%);
+}
+
+/* ===========================
+   Glow
+=========================== */
+
+.glow{
+
+    position:absolute;
+
+    border-radius:50%;
+
+    filter:blur(60px);
+
+    z-index:0;
+
+}
+
+.glow-purple{
+
+    width:520px;
+    height:520px;
+
+    background:#7b2cff55;
+}
+
+.glow-blue{
+
+    width:360px;
+    height:360px;
+
+    background:#4f6fff44;
+}
+
+/* ===========================
+   SVG Lines
+=========================== */
+
+.connection-lines{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+
+    z-index:1;
+
+}
+
+.connection-lines line{
+
+    stroke:#6d35ff;
+
+    stroke-width:2;
+
+    opacity:.35;
+}
+
+/* ===========================
+   Cards
+=========================== */
+
+.floating-card{
+
+    z-index:2;
+}
+
+.hero-circle{
+
+    z-index:3;
+}
+/* ===========================
+Illustration Wrapper
+=========================== */
+
+.hero-illustration{
+
+    position:relative;
+
+    width:560px;
+    height:560px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    z-index:2;
+}
+
+.world-map-layer{
+
+    position:absolute;
+
+    width:100%;
+    height:100%;
+}
+
+.shield-layer{
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+}
+@media (max-width:768px){
+
+.hero-right{
+
+    height:500px;
+
+}
+
+.hero-illustration{
+
+    transform:scale(.75);
+
+}
+
+}

@@ -1,0 +1,69 @@
+.badge{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:14px 24px;
+
+    border-radius:999px;
+
+    font-size:15px;
+
+    letter-spacing:1px;
+
+    font-weight:500;
+
+    transition:.3s;
+
+    width:max-content;
+
+}
+
+.badge-icon{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+}
+
+/* Purple */
+
+.purple{
+
+    color:#b26cff;
+
+    background:#120d25;
+
+    border:1px solid #7b2cff;
+
+}
+
+/* Blue */
+
+.blue{
+
+    color:#73b6ff;
+
+    background:#0c1935;
+
+    border:1px solid #3f8cff;
+
+}
+
+/* Green */
+
+.green{
+
+    color:#65ffb3;
+
+    background:#0d261c;
+
+    border:1px solid #1fd37d;
+
+}

@@ -1,0 +1,126 @@
+.new-scan-page {
+    width: 100%;
+    min-height: 100%;
+    padding: 32px;
+    box-sizing: border-box;
+    color: #ffffff;
+}
+
+.new-scan-page h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.new-scan-page p {
+    margin-top: 8px;
+    color: #9ca3c7;
+    font-size: 15px;
+}
+
+/* =========================================
+   NEW SCAN HEADER
+========================================= */
+
+.new-scan-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 28px;
+}
+
+.new-scan-title-area {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+}
+
+.new-scan-icon {
+    width: 64px;
+    height: 64px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border: 1px solid rgba(139, 92, 246, 0.45);
+    border-radius: 12px;
+
+    background: rgba(76, 29, 149, 0.12);
+
+    color: #b44cff;
+
+    font-size: 34px;
+}
+
+.new-scan-header h1 {
+    margin: 0;
+    font-size: 30px;
+    font-weight: 800;
+}
+
+.new-scan-header p {
+    margin: 6px 0 0;
+
+    color: #9ca3c7;
+
+    font-size: 15px;
+}
+
+
+/* =========================================
+   HEADER BUTTONS
+========================================= */
+
+.new-scan-header-actions {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.scan-templates-btn,
+.start-scan-btn {
+    height: 46px;
+
+    padding: 0 22px;
+
+    border-radius: 9px;
+
+    font-size: 14px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.scan-templates-btn {
+    border: 1px solid rgba(120, 140, 190, 0.25);
+
+    background: rgba(20, 28, 50, 0.65);
+
+    color: #e5e7f5;
+}
+
+.start-scan-btn {
+    border: none;
+
+    background: linear-gradient(
+        90deg,
+        #a52cff,
+        #7c3cff,
+        #168cff
+    );
+
+    color: #ffffff;
+
+    box-shadow: 0 8px 25px rgba(139, 59, 255, 0.25);
+}
+
+.scan-templates-btn:hover {
+    border-color: rgba(168, 59, 255, 0.55);
+}
+
+.start-scan-btn:hover {
+    transform: translateY(-1px);
+}

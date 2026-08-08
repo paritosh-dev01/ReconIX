@@ -1,0 +1,1073 @@
+/* =========================================
+   HERO RIGHT
+========================================= */
+
+.hero-right-v2 {
+
+    width:100%;
+    min-height:760px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    overflow:visible;
+}
+
+
+/* =========================================
+   MAIN RECON PANEL
+========================================= */
+
+.live-recon-panel {
+
+    position:relative;
+
+    width:100%;
+    max-width:760px;
+
+    min-height:650px;
+
+    padding:24px;
+
+    border-radius:28px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(16,12,38,.96),
+            rgba(7,8,22,.98)
+        );
+
+    border:1px solid rgba(150,70,255,.28);
+
+    box-shadow:
+        0 0 35px rgba(123,44,255,.12),
+        0 0 90px rgba(32,191,255,.06),
+        inset 0 0 40px rgba(123,44,255,.035);
+
+    overflow:hidden;
+
+}
+
+
+/* atmospheric glow */
+
+.live-recon-panel::before {
+
+    content:"";
+
+    position:absolute;
+
+    width:420px;
+    height:420px;
+
+    top:120px;
+    left:50%;
+
+    transform:translateX(-50%);
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(184,76,255,.16),
+            rgba(123,44,255,.08) 35%,
+            rgba(32,191,255,.04) 55%,
+            transparent 72%
+        );
+
+    filter:blur(20px);
+
+    pointer-events:none;
+}
+
+
+/* =========================================
+   HEADER
+========================================= */
+
+.recon-panel-header {
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    padding-bottom:18px;
+
+    border-bottom:1px solid rgba(123,44,255,.16);
+
+}
+
+
+.recon-status {
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    color:#d98cff;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    letter-spacing:1.5px;
+
+}
+
+
+.status-dot {
+
+    width:8px;
+    height:8px;
+
+    border-radius:50%;
+
+    background:#38f5bd;
+
+    box-shadow:
+        0 0 8px #38f5bd,
+        0 0 18px rgba(56,245,189,.6);
+
+}
+
+
+.recon-scan-id {
+
+    color:#777995;
+
+    font-size:11px;
+
+    letter-spacing:1px;
+
+}
+
+
+/* =========================================
+   TARGET
+========================================= */
+
+.recon-target {
+
+    position:relative;
+
+    padding-top:22px;
+
+}
+
+
+.target-label {
+
+    color:#777995;
+
+    font-size:10px;
+
+    letter-spacing:2px;
+
+    margin-bottom:6px;
+
+}
+
+
+.target-value {
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:700;
+
+}
+
+
+.scan-progress {
+
+    margin-top:18px;
+
+}
+
+
+.scan-progress-bar {
+
+    width:100%;
+
+    height:4px;
+
+    border-radius:10px;
+
+    background:rgba(255,255,255,.07);
+
+    overflow:hidden;
+
+}
+
+
+.scan-progress-bar span {
+
+    display:block;
+
+    width:72%;
+
+    height:100%;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            90deg,
+            #ff3fd8,
+            #9b3cff,
+            #20cfff
+        );
+
+    box-shadow:
+        0 0 12px rgba(184,76,255,.7);
+
+}
+
+
+.scan-progress-info {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    margin-top:8px;
+
+    color:#888ba8;
+
+    font-size:11px;
+
+}
+
+
+.scan-progress-info strong {
+
+    color:#b96cff;
+
+}
+
+
+/* =========================================
+   RECON CORE
+========================================= */
+
+.recon-core {
+
+    position:relative;
+
+    height:300px;
+
+    margin-top:10px;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    overflow:hidden;
+
+}
+
+
+/* =========================================
+   WORLD GRID
+========================================= */
+
+.world-grid {
+
+    position:absolute;
+
+    width:430px;
+    height:210px;
+
+    border-radius:50%;
+
+    opacity:.35;
+
+    background:
+
+        linear-gradient(
+            rgba(90,70,255,.14) 1px,
+            transparent 1px
+        ),
+
+        linear-gradient(
+            90deg,
+            rgba(90,70,255,.14) 1px,
+            transparent 1px
+        );
+
+    background-size:
+        28px 28px;
+
+    transform:
+        perspective(350px)
+        rotateX(62deg);
+
+    box-shadow:
+        0 0 35px rgba(70,50,255,.15);
+
+}
+
+
+/* =========================================
+   SCANNER RINGS
+========================================= */
+
+.scanner-ring {
+
+    position:absolute;
+
+    border-radius:50%;
+
+    border:1px solid rgba(148,66,255,.35);
+
+    box-shadow:
+        0 0 18px rgba(123,44,255,.12);
+
+}
+
+
+.ring-one {
+
+    width:210px;
+    height:70px;
+
+}
+
+
+.ring-two {
+
+    width:300px;
+    height:100px;
+
+    opacity:.65;
+
+}
+
+
+.ring-three {
+
+    width:400px;
+    height:135px;
+
+    opacity:.35;
+
+}
+
+
+/* =========================================
+   SCANNER SWEEP
+========================================= */
+
+.scanner-sweep {
+
+    position:absolute;
+
+    width:190px;
+    height:190px;
+
+    border-radius:50%;
+
+    border-top:2px solid rgba(43,208,255,.8);
+
+    border-right:2px solid transparent;
+
+    border-bottom:2px solid rgba(184,76,255,.7);
+
+    border-left:2px solid transparent;
+
+    animation:
+        scannerRotate 5s linear infinite;
+
+    box-shadow:
+        0 0 18px rgba(32,191,255,.35);
+
+}
+
+
+@keyframes scannerRotate {
+
+    from {
+        transform:rotate(0deg);
+    }
+
+    to {
+        transform:rotate(360deg);
+    }
+
+}
+
+
+/* =========================================
+   CENTRAL SHIELD
+========================================= */
+
+.recon-shield {
+
+    position:relative;
+
+    width:180px;
+    height:180px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    background:transparent;
+
+}
+
+
+.shield-glow {
+
+    position:absolute;
+
+    width:90px;
+    height:90px;
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(184,76,255,.45),
+            transparent 70%
+        );
+
+    filter:blur(10px);
+
+    z-index:1;
+
+}
+
+
+/* =========================================
+   R
+========================================= */
+
+.central-recon-logo {
+
+    position:relative;
+
+    z-index:3;
+
+    width:135px;
+    height:135px;
+
+    object-fit:contain;
+
+    display:block;
+
+    mix-blend-mode:screen;
+
+    filter:
+        drop-shadow(0 0 12px rgba(184,76,255,.55))
+        drop-shadow(0 0 28px rgba(123,44,255,.28));
+
+}
+
+
+/* =========================================
+   ORBITS
+========================================= */
+
+.orbit {
+
+    position:absolute;
+
+    z-index:4;
+
+    border-radius:50%;
+
+    border:2px solid transparent;
+
+    border-top-color:#ff45e6;
+
+    border-right-color:#8b45ff;
+
+    border-bottom-color:#20cfff;
+
+    pointer-events:none;
+
+}
+
+
+.orbit-one {
+
+    width:220px;
+    height:82px;
+
+    transform:
+        rotate(-20deg);
+
+    animation:
+        orbitMove 7s linear infinite;
+
+}
+
+
+.orbit-two {
+
+    width:185px;
+    height:65px;
+
+    transform:
+        rotate(35deg);
+
+    opacity:.6;
+
+    animation:
+        orbitMoveReverse 9s linear infinite;
+
+}
+
+
+@keyframes orbitMove {
+
+    from {
+        transform:rotate(-20deg) rotate(0deg);
+    }
+
+    to {
+        transform:rotate(-20deg) rotate(360deg);
+    }
+
+}
+
+
+@keyframes orbitMoveReverse {
+
+    from {
+        transform:rotate(35deg) rotate(360deg);
+    }
+
+    to {
+        transform:rotate(35deg) rotate(0deg);
+    }
+
+}
+
+
+/* =========================================
+   DATA GRID
+========================================= */
+
+.recon-data-grid {
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:
+        repeat(4,1fr);
+
+    gap:10px;
+
+    margin-top:8px;
+
+}
+
+
+/* =========================================
+   DISCOVERY DATA
+========================================= */
+
+.recon-data-grid {
+
+    position:relative;
+
+    display:grid;
+
+    grid-template-columns:repeat(4, 1fr);
+
+    gap:12px;
+
+    margin-top:12px;
+
+}
+
+
+/* =========================================
+   DATA CARD
+========================================= */
+
+.recon-data-card {
+
+    position:relative;
+
+    min-height:82px;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    padding:13px;
+
+    border-radius:15px;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255,255,255,.045),
+            rgba(123,44,255,.025)
+        );
+
+    border:1px solid rgba(150,70,255,.18);
+
+    box-shadow:
+        inset 0 0 18px rgba(123,44,255,.025),
+        0 0 12px rgba(123,44,255,.025);
+
+    transition:
+        transform .25s ease,
+        border-color .25s ease,
+        background .25s ease,
+        box-shadow .25s ease;
+
+    overflow:hidden;
+
+}
+
+
+/* subtle card light */
+
+.recon-data-card::before {
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+    left:0;
+
+    width:100%;
+    height:1px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(255,63,216,.55),
+            rgba(123,60,255,.65),
+            rgba(32,207,255,.45),
+            transparent
+        );
+
+    opacity:.55;
+
+}
+
+
+/* hover */
+
+.recon-data-card:hover {
+
+    transform:translateY(-3px);
+
+    border-color:
+        rgba(184,76,255,.45);
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(123,44,255,.09),
+            rgba(32,191,255,.035)
+        );
+
+    box-shadow:
+        0 8px 24px rgba(123,44,255,.12),
+        inset 0 0 18px rgba(123,44,255,.04);
+
+}
+
+
+/* =========================================
+   DATA ICON
+========================================= */
+
+.data-icon {
+
+    flex-shrink:0;
+
+    width:34px;
+    height:34px;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    border-radius:10px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,63,216,.16),
+            rgba(123,60,255,.18),
+            rgba(32,207,255,.10)
+        );
+
+    border:1px solid rgba(184,76,255,.18);
+
+    color:#d88cff;
+
+    font-size:17px;
+
+    box-shadow:
+        0 0 12px rgba(184,76,255,.10);
+
+}
+
+
+/* =========================================
+   LABEL
+========================================= */
+
+.recon-data-card small {
+
+    display:block;
+
+    color:#777995;
+
+    font-size:8px;
+
+    font-weight:600;
+
+    letter-spacing:1.15px;
+
+    white-space:nowrap;
+
+}
+
+
+/* =========================================
+   VALUE
+========================================= */
+
+.recon-data-card strong {
+
+    display:block;
+
+    margin-top:4px;
+
+    color:#ffffff;
+
+    font-size:21px;
+
+    line-height:1;
+
+    font-weight:750;
+
+    letter-spacing:.3px;
+
+}
+
+
+/* =========================================
+   VULNERABILITY
+========================================= */
+
+.recon-data-card.vulnerability {
+
+    border-color:
+        rgba(255,92,174,.20);
+
+}
+
+
+.recon-data-card.vulnerability .data-icon {
+
+    color:#ff82bd;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(255,72,180,.18),
+            rgba(184,76,255,.12)
+        );
+
+}
+
+
+.recon-data-card.vulnerability strong {
+
+    color:#ff72bd;
+
+    text-shadow:
+        0 0 12px rgba(255,72,180,.25);
+
+}
+
+
+/* =========================================
+   RECON ACTIVITY
+========================================= */
+
+.recon-activity {
+
+    position:relative;
+
+    margin-top:16px;
+
+    padding-top:14px;
+
+    border-top:1px solid rgba(123,44,255,.14);
+
+}
+
+
+/* Activity heading */
+
+.activity-title {
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:12px;
+
+    color:#777995;
+
+    font-size:9px;
+
+    font-weight:700;
+
+    letter-spacing:1.6px;
+
+}
+
+
+.activity-live {
+
+    color:#38f5bd;
+
+    text-shadow:
+        0 0 8px rgba(56,245,189,.35);
+
+}
+
+
+/* Activity row */
+
+.activity-line {
+
+    position:relative;
+
+    display:flex;
+
+    align-items:center;
+
+    gap:9px;
+
+    min-height:24px;
+
+    margin-top:6px;
+
+    padding:4px 7px;
+
+    border-radius:7px;
+
+    color:#8588a5;
+
+    font-size:10px;
+
+    transition:.25s ease;
+
+}
+
+
+.activity-line:hover {
+
+    background:
+        rgba(123,44,255,.045);
+
+    color:#bfc0d2;
+
+}
+
+
+/* Active scan */
+
+.activity-line.active {
+
+    color:#d4d4e2;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(123,44,255,.08),
+            transparent
+        );
+
+}
+
+
+/* Status */
+
+.activity-line strong {
+
+    margin-left:auto;
+
+    color:#38f5bd;
+
+    font-size:9px;
+
+    font-weight:700;
+
+}
+
+
+.activity-line.active strong {
+
+    color:#b96cff;
+
+    text-shadow:
+        0 0 8px rgba(184,76,255,.35);
+
+}
+
+
+/* Pulse */
+
+.activity-pulse {
+
+    flex-shrink:0;
+
+    width:5px;
+
+    height:5px;
+
+    border-radius:50%;
+
+    background:#8d45ff;
+
+    box-shadow:
+        0 0 7px rgba(141,69,255,.8);
+
+}
+
+
+/* Active pulse */
+
+.activity-line.active .activity-pulse {
+
+    background:#38f5bd;
+
+    box-shadow:
+        0 0 7px #38f5bd,
+        0 0 15px rgba(56,245,189,.55);
+
+    animation:
+        activityPulse 1.4s ease-in-out infinite;
+
+}
+
+
+@keyframes activityPulse {
+
+    0%,
+    100% {
+
+        opacity:.45;
+        transform:scale(.8);
+
+    }
+
+    50% {
+
+        opacity:1;
+        transform:scale(1.2);
+
+    }
+
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width:1100px) {
+
+    .live-recon-panel {
+
+        max-width:680px;
+
+    }
+
+    .recon-data-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+}
+
+
+@media (max-width:900px) {
+
+    .hero-right-v2 {
+
+        min-height:650px;
+
+    }
+
+    .live-recon-panel {
+
+        max-width:650px;
+
+    }
+
+}
+
+
+@media (max-width:650px) {
+
+    .hero-right-v2 {
+
+        min-height:580px;
+
+    }
+
+    .live-recon-panel {
+
+        padding:18px;
+
+        border-radius:22px;
+
+    }
+
+    .recon-core {
+
+        height:260px;
+
+    }
+
+    .recon-data-grid {
+
+        grid-template-columns:
+            repeat(2,1fr);
+
+    }
+
+    .recon-data-card {
+
+        min-height:68px;
+
+    }
+
+}

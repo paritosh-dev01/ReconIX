@@ -1,0 +1,43 @@
+:root{
+
+    /* ===== COLORS ===== */
+
+    --bg-primary:#070816;
+    --bg-secondary:#101225;
+    --bg-glass:rgba(255,255,255,.04);
+
+    --text-primary:#ffffff;
+    --text-secondary:#c8c8d8;
+
+    --purple:#7b2cff;
+    --purple-light:#b84cff;
+
+    --blue:#4f6fff;
+
+    /* ===== GRADIENTS ===== */
+
+    --gradient-primary:
+    linear-gradient(
+        135deg,
+        #7b2cff,
+        #4f6fff
+    );
+
+    /* ===== SHADOWS ===== */
+
+    --shadow-glow:
+    0 18px 45px rgba(123,44,255,.28);
+
+    /* ===== BORDER ===== */
+
+    --border-glass:
+    1px solid rgba(123,44,255,.18);
+
+    /* ===== RADIUS ===== */
+
+    --radius-sm:10px;
+    --radius-md:16px;
+    --radius-lg:24px;
+    --radius-pill:999px;
+
+}

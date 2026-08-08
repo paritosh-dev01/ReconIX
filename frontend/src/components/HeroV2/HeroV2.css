@@ -1,0 +1,99 @@
+.hero-v2 {
+
+    width: 100%;
+
+    min-height: 920px;
+
+    padding: 40px 0 20px;
+
+    background: #070816;
+}
+
+
+.hero-container-v2 {
+
+    width: 92%;
+
+    max-width: 1500px;
+
+    margin: auto;
+
+    display: grid;
+
+    grid-template-columns: 48% 52%;
+
+    align-items: center;
+
+    gap: 10px;
+}
+
+
+/* =========================================
+   RESPONSIVE HERO FIX
+========================================= */
+
+@media (max-width: 900px) {
+
+    .hero-container-v2 {
+
+        grid-template-columns: 1fr;
+
+        gap: 50px;
+
+        align-items: start;
+    }
+
+
+    .hero-left-v2,
+    .hero-right-v2 {
+
+        width: 100%;
+
+        max-width: 100%;
+
+        min-width: 0;
+    }
+
+
+    .hero-right-v2 {
+
+        margin-top: 0;
+
+        display: flex;
+
+        justify-content: center;
+    }
+
+
+    .live-recon-panel {
+
+        width: 100%;
+
+        max-width: 760px;
+
+        margin: 0 auto;
+    }
+}
+
+
+/* =========================================
+   SMALL SCREEN
+========================================= */
+
+@media (max-width: 650px) {
+
+    .hero-v2 {
+
+        min-height: auto;
+
+        padding: 30px 0 50px;
+    }
+
+
+    .hero-container-v2 {
+
+        width: 94%;
+
+        gap: 40px;
+    }
+}
