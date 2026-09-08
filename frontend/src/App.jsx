@@ -1,7 +1,7 @@
-import NewScan from "./components/NewScan/NewScan";
+import ScanResults from "./components/ScanResults/ScanResults";
 
 function App() {
-  return <NewScan />;
+  return <ScanResults />;
 }
 
 export default App;
