@@ -9,7 +9,8 @@ function ScanResults() {
       <aside className="scan-results-sidebar">
 
         <div className="scan-results-brand">
-          <img src={reconixLogo} alt="ReconIX" />
+          <img src={reconixLogo} alt="ReconIX Logo" />
+          <span>ReconIX</span>
         </div>
 
         <nav className="scan-results-nav">

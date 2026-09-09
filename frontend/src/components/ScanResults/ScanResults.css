@@ -65,7 +65,7 @@
   border-radius: 7px;
   color: #8995a8;
   text-decoration: none;
-  font-size: 11px;
+  font-size: 13px;
   transition: 0.2s ease;
 }
 
@@ -115,14 +115,14 @@
 .scan-results-plan h3 {
   margin: 0 0 6px;
   color: #e8eaf0;
-  font-size: 11px;
+  font-size: 13px;
   font-weight: 600;
 }
 
 .scan-results-plan p {
   margin: 0 0 12px;
   color: #8d98ab;
-  font-size: 9px;
+  font-size: 11px;
   line-height: 1.55;
 }
 
@@ -132,7 +132,7 @@
   border: 0;
   border-radius: 6px;
   color: white;
-  font-size: 9px;
+  font-size: 11px;
   cursor: pointer;
   background: linear-gradient(
     90deg,
@@ -156,7 +156,7 @@
   display: flex;
   justify-content: space-between;
   color: #68758a;
-  font-size: 8px;
+  font-size: 13px;
   margin-bottom: 9px;
 }
 
@@ -171,27 +171,27 @@
   color: #35df8b;
   background: rgba(34, 197, 94, 0.1);
   border: 1px solid rgba(34, 197, 94, 0.18);
-  font-size: 12px;
+  font-size: 13px;
 }
 
 .scan-results-system strong {
   display: block;
   color: #d8dee8;
-  font-size: 9px;
+  font-size: 11px;
   font-weight: 500;
 }
 
 .scan-results-system p {
   margin: 4px 0 0;
   color: #667287;
-  font-size: 8px;
+  font-size: 10px;
   line-height: 1.4;
 }
 
 .collapse-sidebar {
   padding: 14px 9px 0;
   color: #657185;
-  font-size: 9px;
+  font-size: 11px;
 }
 
 
@@ -979,7 +979,7 @@
 .affected-list div > span:nth-child(2) {
   flex: 1;
   color: #8793a6;
-  font-size: 8px;
+  font-size: 12px;
 }
 
 .affected-list strong {
@@ -1326,4 +1326,1013 @@
     flex-shrink: 0;
   }
 
+}
+
+/* =========================================================
+   STEP 4 — SCREEN 08 VISUAL POLISH
+   TOP SUMMARY + CARD REFINEMENT
+========================================================= */
+
+.results-summary-grid {
+  align-items: stretch;
+}
+
+.results-summary-grid > .results-card {
+  min-height: 258px;
+}
+
+/* Security score card */
+.security-score-card {
+  background:
+    radial-gradient(
+      circle at 15% 45%,
+      rgba(124, 58, 237, 0.07),
+      transparent 42%
+    ),
+    rgba(5, 15, 29, 0.94);
+}
+
+.security-score-card::after {
+  content: "";
+  position: absolute;
+  width: 180px;
+  height: 180px;
+  right: -85px;
+  bottom: -105px;
+  border-radius: 50%;
+  background: rgba(32, 197, 255, 0.035);
+  pointer-events: none;
+}
+
+/* Score ring refinement */
+.score-ring {
+  box-shadow:
+    0 0 24px rgba(32, 197, 255, 0.08),
+    0 0 38px rgba(124, 58, 237, 0.08);
+}
+
+.score-ring-inner {
+  box-shadow:
+    inset 0 0 18px rgba(0, 0, 0, 0.25);
+}
+
+/* Score details */
+.score-details > strong {
+  font-size: 13px;
+  color: #edf2f8;
+}
+
+.score-details p {
+  max-width: 195px;
+  color: #7e8a9e;
+}
+
+/* Executive summary */
+.executive-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(7, 18, 34, 0.98),
+      rgba(5, 15, 29, 0.94)
+    );
+}
+
+.summary-list {
+  row-gap: 10px;
+}
+
+.summary-list span {
+  color: #7f8b9e;
+}
+
+.summary-list strong {
+  font-size: 10px;
+}
+
+/* Mini information boxes */
+.summary-mini-grid {
+  margin-top: 17px;
+}
+
+.summary-mini-grid div {
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: rgba(9, 20, 36, 0.78);
+}
+
+.summary-mini-grid strong {
+  color: #edf2f8;
+}
+
+/* Vulnerability distribution */
+.vulnerability-card {
+  background:
+    radial-gradient(
+      circle at 30% 50%,
+      rgba(59, 130, 246, 0.035),
+      transparent 48%
+    ),
+    rgba(5, 15, 29, 0.94);
+}
+
+.distribution-content {
+  min-height: 140px;
+}
+
+.distribution-ring {
+  box-shadow:
+    0 0 24px rgba(56, 189, 248, 0.07);
+}
+
+.distribution-list {
+  gap: 11px;
+}
+
+.distribution-list strong {
+  color: #e2e8f0;
+}
+
+.vulnerability-card .view-link {
+  display: inline-block;
+  margin-top: 9px;
+}
+
+
+/* =========================================================
+   METRIC CARDS POLISH
+========================================================= */
+
+.metric-box {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.metric-box:hover {
+  transform: translateY(-1px);
+  border-color: rgba(139, 92, 246, 0.28);
+  background: rgba(7, 18, 34, 0.96);
+}
+
+.metric-box > span {
+  opacity: 0.9;
+}
+
+
+/* =========================================================
+   LOWER CARD POLISH
+========================================================= */
+
+.results-lower-grid > .results-card {
+  background:
+    linear-gradient(
+      145deg,
+      rgba(5, 15, 29, 0.96),
+      rgba(4, 13, 26, 0.94)
+    );
+}
+
+.results-lower-grid .card-heading {
+  margin-bottom: 15px;
+}
+
+.finding-row {
+  min-height: 44px;
+}
+
+.finding-row:hover {
+  background: rgba(124, 58, 237, 0.025);
+}
+
+.affected-list > div {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.affected-list > div:hover {
+  border-color: rgba(32, 197, 255, 0.16);
+  background: rgba(8, 20, 37, 0.82);
+}
+
+.technology-tags span {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.technology-tags span:hover {
+  border-color: rgba(168, 85, 247, 0.25);
+  background: rgba(12, 22, 40, 0.85);
+}
+
+
+/* =========================================================
+   ACTION BUTTON POLISH
+========================================================= */
+
+.secondary-action,
+.download-action,
+.remediation-btn {
+  transition:
+    border-color 0.2s ease,
+    background 0.2s ease,
+    transform 0.2s ease;
+}
+
+.secondary-action:hover {
+  border-color: rgba(139, 92, 246, 0.3);
+  color: #e5e7eb;
+  background: rgba(12, 22, 40, 0.95);
+}
+
+.download-action:hover {
+  transform: translateY(-1px);
+}
+
+.remediation-btn:hover {
+  border-color: rgba(168, 85, 247, 0.35);
+  background: rgba(124, 58, 237, 0.14);
+}
+
+
+/* =========================================================
+   RESPONSIVE SAFETY
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .results-summary-grid > .results-card {
+    min-height: 250px;
+  }
+
+}
+
+@media (max-width: 850px) {
+
+  .results-summary-grid > .results-card {
+    min-height: auto;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .results-summary-grid > .results-card {
+    min-height: auto;
+  }
+
+  .score-content {
+    min-height: 125px;
+  }
+
+}
+
+/* =========================================================
+   STEP 4B — FINAL LOGO CLIPPING FIX
+========================================================= */
+
+.scan-results-sidebar {
+  padding-top: 32px;
+}
+
+.scan-results-brand {
+  height: 82px;
+  padding: 0 9px;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  overflow: visible;
+}
+
+.scan-results-brand img {
+  width: 145px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+/* =========================================================
+   STEP 4C — LOWER SECTION VISUAL POLISH
+========================================================= */
+
+/* Lower cards overall */
+.results-lower-grid {
+  align-items: start;
+}
+
+.results-lower-grid > .results-card {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Subtle top highlight */
+.results-lower-grid > .results-card::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(139, 92, 246, 0.18),
+    transparent
+  );
+  pointer-events: none;
+}
+
+
+/* =========================================================
+   CRITICAL FINDINGS
+========================================================= */
+
+.findings-card {
+  min-height: 255px;
+}
+
+.finding-header {
+  padding: 0 2px;
+}
+
+.finding-row {
+  transition: background 0.18s ease;
+}
+
+.finding-row:hover {
+  background: rgba(139, 92, 246, 0.045);
+}
+
+.finding-row > span:first-child {
+  color: #69768a;
+}
+
+.finding-row > span:nth-child(3) {
+  color: #78859a;
+}
+
+.finding-row > strong:nth-child(5) {
+  color: #e2e8f0;
+}
+
+.severity {
+  letter-spacing: 0.1px;
+}
+
+
+/* =========================================================
+   AFFECTED ASSETS
+========================================================= */
+
+.affected-card {
+  min-height: 255px;
+}
+
+.affected-list {
+  gap: 6px;
+}
+
+.affected-list > div {
+  min-height: 42px;
+}
+
+.asset-type-icon {
+  transition:
+    background 0.18s ease,
+    color 0.18s ease;
+}
+
+.affected-list > div:hover .asset-type-icon {
+  background: rgba(32, 197, 255, 0.13);
+  color: #4bd2ff;
+}
+
+
+/* =========================================================
+   PORTS
+========================================================= */
+
+.ports-card {
+  min-height: 190px;
+}
+
+.port-list > div {
+  min-height: 36px;
+}
+
+.port-list > div:hover {
+  background: rgba(32, 197, 255, 0.025);
+}
+
+.port-list strong {
+  color: #e1e7ef;
+}
+
+.port-list b {
+  font-weight: 500;
+}
+
+
+/* =========================================================
+   TECHNOLOGIES
+========================================================= */
+
+.technologies-card {
+  min-height: 190px;
+}
+
+.technology-tags {
+  gap: 8px;
+}
+
+.technology-tags span {
+  min-height: 27px;
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+}
+
+
+/* =========================================================
+   RECOMMENDED NEXT STEPS
+========================================================= */
+
+.recommendations-card {
+  min-height: 190px;
+}
+
+.recommendations {
+  gap: 10px;
+}
+
+.recommendations > div {
+  min-height: 24px;
+}
+
+.recommendations b {
+  box-shadow: inset 0 0 8px rgba(168, 85, 247, 0.06);
+}
+
+.recommendations span {
+  color: #8995a7;
+}
+
+.remediation-btn {
+  margin-top: 15px;
+}
+
+
+/* =========================================================
+   REPORT DETAILS
+========================================================= */
+
+.report-details-card {
+  min-height: 215px;
+}
+
+.report-details-list {
+  gap: 9px;
+}
+
+.report-details-list div {
+  padding-bottom: 8px;
+}
+
+.report-details-list strong {
+  color: #d8dfe9;
+}
+
+.classification {
+  color: #c4acd9;
+}
+
+
+/* =========================================================
+   LOWER GRID — BETTER BALANCE
+========================================================= */
+
+.results-lower-grid {
+  grid-auto-rows: minmax(0, auto);
+}
+
+.results-lower-grid .card-heading h2 {
+  color: #e0e6ef;
+}
+
+
+/* =========================================================
+   VIEW ALL LINKS
+========================================================= */
+
+.view-link {
+  transition:
+    color 0.18s ease,
+    opacity 0.18s ease;
+}
+
+.view-link:hover {
+  color: #d176ff;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .findings-card,
+  .affected-card,
+  .ports-card,
+  .technologies-card,
+  .recommendations-card,
+  .report-details-card {
+    min-height: auto;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .finding-row:hover,
+  .port-list > div:hover {
+    background: transparent;
+  }
+
+  .technology-tags span {
+    min-height: 25px;
+  }
+
+}
+
+/* =========================================================
+   STEP 4D — FINAL POLISH + READABLE TEXT SIZE
+   ========================================================= */
+
+/* ---------- GLOBAL TEXT SCALE ---------- */
+
+.scan-results-main {
+  font-size: 14px;
+}
+
+.scan-results-main p {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.scan-results-main small {
+  font-size: 12px;
+}
+
+.scan-results-main span {
+  font-size: 13px;
+}
+
+
+/* ---------- TOP BAR ---------- */
+
+.scan-results-topbar {
+  min-height: 70px;
+}
+
+.breadcrumbs {
+  font-size: 13px;
+}
+
+.breadcrumbs span,
+.breadcrumbs strong {
+  font-size: 13px;
+}
+
+.topbar-search input {
+  font-size: 13px;
+}
+
+.topbar-search kbd {
+  font-size: 11px;
+}
+
+.user-info strong {
+  font-size: 13px;
+}
+
+.user-info span {
+  font-size: 11px;
+}
+
+
+/* ---------- PAGE HEADER ---------- */
+
+.scan-results-header {
+  min-height: 105px;
+}
+
+.results-title-row h1 {
+  font-size: 25px;
+  line-height: 1.2;
+}
+
+.results-title-area > div > p {
+  font-size: 13px;
+  margin-top: 7px;
+}
+
+.completed-badge {
+  font-size: 11px;
+}
+
+.results-actions button {
+  font-size: 12px;
+  min-height: 36px;
+}
+
+
+/* ---------- CARD HEADINGS ---------- */
+
+.results-card .card-heading h2 {
+  font-size: 15px;
+  line-height: 1.3;
+}
+
+.card-heading > span,
+.card-heading > a {
+  font-size: 11px;
+}
+
+
+/* ---------- SECURITY SCORE ---------- */
+
+.score-ring-inner strong {
+  font-size: 28px;
+}
+
+.score-ring-inner span {
+  font-size: 11px;
+}
+
+.score-grade {
+  font-size: 15px;
+}
+
+.score-details > strong {
+  font-size: 14px;
+}
+
+.score-details p {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.risk-box span {
+  font-size: 11px;
+}
+
+.risk-box strong {
+  font-size: 11px;
+}
+
+
+/* ---------- EXECUTIVE SUMMARY ---------- */
+
+.summary-list span {
+  font-size: 12px;
+}
+
+.summary-list strong {
+  font-size: 12px;
+}
+
+.summary-mini-grid span {
+  font-size: 11px;
+}
+
+.summary-mini-grid strong {
+  font-size: 12px;
+}
+
+
+/* ---------- VULNERABILITY DISTRIBUTION ---------- */
+
+.distribution-ring strong {
+  font-size: 23px;
+}
+
+.distribution-ring span {
+  font-size: 10px;
+}
+
+.distribution-list span {
+  font-size: 12px;
+}
+
+.distribution-list strong {
+  font-size: 12px;
+}
+
+.vulnerability-card .view-link {
+  font-size: 12px;
+}
+
+
+/* ---------- METRICS ---------- */
+
+.metric-box small {
+  font-size: 12px;
+}
+
+.metric-box strong {
+  font-size: 22px;
+}
+
+.metric-box em {
+  font-size: 11px;
+}
+
+
+/* ---------- TABS ---------- */
+
+.results-tabs {
+  min-height: 46px;
+}
+
+.results-tabs button {
+  font-size: 12px;
+  min-width: 80px;
+}
+
+
+/* ---------- FINDINGS TABLE ---------- */
+
+.finding-header span {
+  font-size: 11px;
+}
+
+.finding-row span,
+.finding-row strong {
+  font-size: 12px;
+}
+
+.finding-row .severity {
+  font-size: 10px;
+}
+
+.open-status {
+  font-size: 11px;
+}
+
+
+/* ---------- AFFECTED ASSETS ---------- */
+
+.affected-list span {
+  font-size: 12px;
+}
+
+.affected-list strong {
+  font-size: 12px;
+}
+
+.card-count {
+  font-size: 11px;
+}
+
+
+/* ---------- OPEN PORTS ---------- */
+
+.ports-card .card-heading > span {
+  font-size: 11px;
+}
+
+.port-list strong {
+  font-size: 13px;
+}
+
+.port-list span {
+  font-size: 12px;
+}
+
+.port-list b {
+  font-size: 12px;
+}
+
+
+/* ---------- TECHNOLOGIES ---------- */
+
+.technology-tags span {
+  font-size: 12px;
+}
+
+.technology-tags b {
+  font-size: 10px;
+}
+
+
+/* ---------- RECOMMENDATIONS ---------- */
+
+.recommendations b {
+  font-size: 11px;
+}
+
+.recommendations span {
+  font-size: 12px;
+}
+
+.remediation-btn {
+  font-size: 12px;
+}
+
+
+/* ---------- REPORT DETAILS ---------- */
+
+.report-details-list span {
+  font-size: 12px;
+}
+
+.report-details-list strong {
+  font-size: 11px;
+}
+
+.classification {
+  font-size: 12px;
+}
+
+
+/* ---------- VIEW LINKS ---------- */
+
+.view-link {
+  font-size: 12px;
+}
+
+
+/* ---------- FOOTER ---------- */
+
+.scan-results-footer {
+  font-size: 11px;
+}
+
+.scan-results-footer span {
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   SPACING / BALANCE
+   ========================================================= */
+
+.results-summary-grid {
+  gap: 14px;
+}
+
+.results-metrics {
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.results-tabs {
+  margin-top: 14px;
+}
+
+.results-lower-grid {
+  margin-top: 14px;
+  gap: 14px;
+}
+
+
+/* ---------- CARD INTERNAL SPACING ---------- */
+
+.results-card {
+  padding: 17px;
+}
+
+.card-heading {
+  margin-bottom: 14px;
+}
+
+
+/* ---------- BUTTON POLISH ---------- */
+
+.results-actions button {
+  transition:
+    transform .18s ease,
+    border-color .18s ease,
+    background .18s ease;
+}
+
+.results-actions button:hover {
+  transform: translateY(-1px);
+}
+
+
+/* ---------- TABS POLISH ---------- */
+
+.results-tabs button {
+  transition:
+    color .18s ease,
+    background .18s ease;
+}
+
+.results-tabs button:hover {
+  background: rgba(139, 92, 246, .06);
+}
+
+
+/* ---------- RESPONSIVE TEXT ---------- */
+
+@media (max-width: 850px) {
+
+  .results-title-row h1 {
+    font-size: 22px;
+  }
+
+  .results-card .card-heading h2 {
+    font-size: 14px;
+  }
+
+  .metric-box strong {
+    font-size: 20px;
+  }
+
+}
+
+@media (max-width: 620px) {
+
+  .scan-results-main {
+    font-size: 13px;
+  }
+
+  .results-title-row h1 {
+    font-size: 20px;
+  }
+
+  .results-title-area > div > p {
+    font-size: 12px;
+  }
+
+  .results-card {
+    padding: 14px;
+  }
+
+  .results-card .card-heading h2 {
+    font-size: 14px;
+  }
+
+  .summary-list span,
+  .distribution-list span,
+  .affected-list span,
+  .port-list span,
+  .recommendations span {
+    font-size: 11px;
+  }
+
+  .summary-list strong,
+  .distribution-list strong,
+  .affected-list strong,
+  .port-list strong {
+    font-size: 11px;
+  }
+
+}
+
+/* =========================================================
+   SCREEN 08 — RECONIX BRAND TEXT
+   ========================================================= */
+
+.scan-results-brand {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  height: 82px;
+  padding: 0 9px;
+  margin-bottom: 12px;
+  overflow: visible;
+}
+
+.scan-results-brand img {
+  width: 48px;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.scan-results-brand span {
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.4px;
+
+  background: linear-gradient(
+    90deg,
+    #f05cff,
+    #a83bff,
+    #6545ff,
+    #20c5ff
+  );
+
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
