@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Dashboard.css";
 import Assets from "../Assets/Assets";
-import Scans from "../../Scans/Scans";
+import Scans from "../Scans/Scans";
 import ReconIXLogo from "../../assets/logo/ReconIXLogo.png";
 
 const Dashboard = () => {
@@ -158,7 +158,7 @@ const Dashboard = () => {
                         className={`dashboard-nav-item ${
                             activePage === "scans" ? "active" : ""
                         }`}
-                        onClick={() => setActivePage("scans")}
+                        onClick={() => window.location.href = "/scans"}
                     >
                         <span>◉</span>
                         Scans

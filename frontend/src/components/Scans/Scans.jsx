@@ -147,12 +147,7 @@ const Scans = () => {
     // =========================================
 
     const handleOpenNewScan = () => {
-
-        setScanName("");
-        setTarget("");
-        setScanType("Web Application");
-
-        setShowNewScan(true);
+    window.location.href = "/new-scan";
     };
 
     return (

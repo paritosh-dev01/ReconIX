@@ -32,7 +32,10 @@ export default function Login() {
           />
 
           <div className="login-brand-name">
+            <h1>
             Recon<span>IX</span>
+            </h1>
+            <p>Reconnaissance Platform</p>
           </div>
 
         </div>

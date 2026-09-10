@@ -209,9 +209,12 @@ function RunningScan() {
               View Details
             </button>
 
-            <button className="scan-action results">
+            <button
+              className="scan-action results"
+              onClick={() => window.location.href = "/scan-results"}
+            >
               <span>→</span>
-              Open Results (Soon)
+              Open Results
             </button>
 
           </div>

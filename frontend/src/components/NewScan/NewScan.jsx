@@ -89,7 +89,7 @@ export default function NewScan() {
       scheduleEnabled,
     });
 
-    alert("Scan configuration saved.");
+    window.location.href = "/running-scan";
   };
 
   return (
