@@ -11,6 +11,8 @@ import Reports from "./components/Reports/Reports";
 import Scans from "./components/Scans/Scans";
 import Landing from "./components/Landing/Landing";
 import Assets from "./components/Assets/Assets";
+import AssetDetails from "./components/AssetDetails/AssetDetails";
+
 
 function App() {
   return (
@@ -28,6 +30,10 @@ function App() {
         <Route path="/dashboard" element={<Dashboard />} />
 
         <Route path="/assets" element={<Assets />} />
+
+        <Route path="/asset-details" element={<AssetDetails />} />
+
+        <Route path="/asset-details/:assetId" element={<AssetDetails />} />
 
         <Route path="/scans" element={<Scans />} />
 
