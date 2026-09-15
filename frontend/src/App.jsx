@@ -12,6 +12,7 @@ import Landing from "./components/Landing/Landing";
 import Assets from "./components/Assets/Assets";
 import AssetDetails from "./components/AssetDetails/AssetDetails";
 import Settings from "./components/Settings/Settings";
+import Profile from "./components/Profile/Profile";
 
 
 
@@ -47,6 +48,8 @@ function App() {
         <Route path="/reports" element={<Reports />} />
 
         <Route path="/settings" element={<Settings />} />
+
+        <Route path="/profile" element={<Profile />} />
 
       </Routes>
     </BrowserRouter>
