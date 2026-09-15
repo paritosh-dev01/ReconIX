@@ -1,711 +1,191 @@
+import React, { useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import "./RunningScan.css";
-import reconixLogo from "../../assets/logo/ReconIXLogo.png";
 
-function RunningScan() {
+export default function RunningScan() {
+  const navigate = useNavigate();
+  const location = useLocation();
+  const scanConfig = location.state?.scanConfig || {};
+
+  const [progress, setProgress] = useState(58);
+  const [activeTab, setActiveTab] = useState("logs");
+  
+  const [logs] = useState([
+    "[02:14:02] INITIALIZING ReconIX Core Engine v4.2...",
+    "[02:14:05] Target resolve successful: app.reconix.com [IP: 104.21.90.12]",
+    "[02:14:10] Initiating SYN stealth port scan across 1000 top ports...",
+    "[02:14:18] Subdomain brute-forcing active (Wordlist: SecLists-Top100k)...",
+    "[02:14:25] Discovered 14 active production subdomains & endpoints",
+    "[02:14:32] Analyzing SSL/TLS cipher suites and certificate chains...",
+    "[02:14:40] Injecting fuzzing vectors for OWASP Top 10 vulnerabilities...",
+    "[02:14:48] Analyzing HTTP response headers and security policies...",
+  ]);
+
+  const [subdomains] = useState([
+    { name: "api.reconix.com", status: "Active (200 OK)", ip: "104.21.90.13" },
+    { name: "admin.reconix.com", status: "Protected (401)", ip: "104.21.90.18" },
+    { name: "staging.reconix.com", status: "Active (200 OK)", ip: "104.21.90.22" },
+    { name: "git.reconix.com", status: "Exposed Header", ip: "104.21.90.35" },
+  ]);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setProgress((prev) => (prev < 99 ? prev + 1 : prev));
+    }, 2500);
+    return () => clearInterval(timer);
+  }, []);
+
+  const handleCancelScan = () => {
+    if (window.confirm("Abort active security scan?")) {
+      navigate("/scans");
+    }
+  };
+
   return (
-    <div className="running-scan-page">
+    <div className="runningscan-page">
+      {/* HEADER SECTION */}
+      <div className="runningscan-header">
+        <div className="header-left">
+          <div className="badge-row">
+            <span className="runningscan-badge animate-pulse">● LIVE THREAT SCAN</span>
+            <span className="scan-mode-tag">{scanConfig.scanProfile || "Full Security Scan"}</span>
+          </div>
+          <h1>{scanConfig.scanName || "Website Security Scan - Prod"}</h1>
+          <p>Target Node: <span>{scanConfig.targets?.[0]?.value || "app.reconix.com"}</span></p>
+        </div>
+        <div className="header-actions">
+          <button className="cancel-scan-btn" onClick={handleCancelScan}>
+            Abort Scan
+          </button>
+        </div>
+      </div>
 
-      {/* ================= SIDEBAR ================= */}
-      <aside className="running-sidebar">
-
-        <div className="running-brand">
-          <img src={reconixLogo} alt="ReconIX" />
-
-          <span className="running-brand-text">
-            Recon<span>IX</span>
-          </span>
+      {/* METRICS & PROGRESS HERO CARD */}
+      <div className="runningscan-progress-card cyber-grid-bg">
+        <div className="radar-glow-effect" />
+        <div className="progress-info-top">
+          <div>
+            <span className="progress-label">SCAN ENGINE STATUS</span>
+            <h2>{progress}% <small>Completed</small></h2>
+          </div>
+          <div className="status-live-container">
+            <span className="live-radar-ping" />
+            <span className="status-text">DEEP INSPECTION ACTIVE</span>
+          </div>
         </div>
 
-        <nav className="running-sidebar-nav">
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">⌂</span>
-            <span>Dashboard</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">▣</span>
-            <span>Assets</span>
-          </a>
-
-          <a href="#" className="running-nav-item active">
-            <span className="running-nav-icon">◉</span>
-            <span>Scans</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">♢</span>
-            <span>Vulnerabilities</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">◉</span>
-            <span>Threat Intelligence</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">▤</span>
-            <span>Reports</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">♙</span>
-            <span>Automation</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">✧</span>
-            <span>Integrations</span>
-          </a>
-
-          <a href="#" className="running-nav-item">
-            <span className="running-nav-icon">⚙</span>
-            <span>Settings</span>
-          </a>
-
-        </nav>
-
-        <div className="running-enterprise-card">
-          <div className="enterprise-icon">♛</div>
-
-          <h3>Enterprise Plan</h3>
-
-          <p>
-            Unlock advanced features
-            and unlimited scans.
-          </p>
-
-          <button>Upgrade Now</button>
+        <div className="main-progress-bar">
+          <div className="main-progress-fill" style={{ width: `${progress}%` }} />
         </div>
 
-        <div className="running-system-card">
-
-          <div className="system-card-header">
-            <span>System Status</span>
-            <span className="system-arrow">→</span>
+        <div className="progress-stats-grid">
+          <div className="stat-item">
+            <span>Scan Protocol</span>
+            <strong>{scanConfig.scanType || "Web Application"}</strong>
           </div>
-
-          <div className="system-status">
-
-            <span className="system-status-icon">✓</span>
-
-            <div>
-              <strong>All Systems Secure</strong>
-              <p>Everything is running smoothly.</p>
-            </div>
-
+          <div className="stat-item">
+            <span>Packets Dispatched</span>
+            <strong>48,210 req/s</strong>
           </div>
-
+          <div className="stat-item">
+            <span>Elapsed Time</span>
+            <strong>00:12:45</strong>
+          </div>
+          <div className="stat-item">
+            <span>Estimated Remaining</span>
+            <strong>~00:08:15</strong>
+          </div>
         </div>
+      </div>
 
-        <div className="running-collapse">
-          <span>«</span>
-          <span>Collapse</span>
-        </div>
-
-      </aside>
-
-
-      {/* ================= MAIN CONTENT ================= */}
-      <main className="running-main">
-
-        {/* TOP HEADER */}
-        <header className="running-topbar">
-
-          <div className="running-breadcrumb">
-
-            <span>Dashboard</span>
-
-            <b>›</b>
-
-            <span>Scans</span>
-
-            <b>›</b>
-
-            <strong>Running Scan</strong>
-
-          </div>
-
-
-          <div className="running-topbar-right">
-
-            <div className="running-search">
-              <span className="search-icon">⌕</span>
-
-              <span>
-                Search assets, scans, vulnerabilities...
-              </span>
-
-              <kbd>⌘ K</kbd>
-            </div>
-
-            <button className="top-icon-button">
-              ♧
-              <span className="notification-badge">8</span>
-            </button>
-
-            <button className="top-icon-button">
-              ?
-            </button>
-
-            <button className="top-icon-button">
-              ☾
-            </button>
-
-            <div className="admin-profile">
-
-              <div className="admin-avatar">
-                A
-              </div>
-
-              <div>
-                <strong>Admin</strong>
-                <span>Administrator</span>
-              </div>
-
-              <span className="admin-arrow">⌄</span>
-
-            </div>
-
-          </div>
-
-        </header>
-
-
-        {/* PAGE HEADER */}
-        <section className="running-page-header">
-
-          <div className="running-title-area">
-
-            <div className="running-title-icon">
-              ◉
-            </div>
-
-            <div>
-              <h1>Running Scan</h1>
-
-              <p>
-                Real-time progress and live scan activity
-              </p>
-            </div>
-
-          </div>
-
-
-          <div className="running-actions">
-
-            <button className="scan-action pause">
-              <span>Ⅱ</span>
-              Pause Scan
-            </button>
-
-            <button className="scan-action stop">
-              <span>■</span>
-              Stop Scan
-            </button>
-
-            <button className="scan-action details">
-              <span>◉</span>
-              View Details
-            </button>
-
-            <button
-              className="scan-action results"
-              onClick={() => window.location.href = "/scan-results"}
+      {/* DYNAMIC TABBED WORKSPACE */}
+      <div className="runningscan-workspace">
+        
+        {/* LEFT COLUMN: CONSOLE / DATA TABS */}
+        <div className="runningscan-card main-console-card">
+          <div className="console-tabs-header">
+            <button 
+              className={`tab-btn ${activeTab === "logs" ? "active" : ""}`} 
+              onClick={() => setActiveTab("logs")}
             >
-              <span>→</span>
-              Open Results
+              ⚡ Live Console Logs
             </button>
-
+            <button 
+              className={`tab-btn ${activeTab === "subdomains" ? "active" : ""}`} 
+              onClick={() => setActiveTab("subdomains")}
+            >
+              🌐 Discovered Subdomains ({subdomains.length})
+            </button>
           </div>
 
-        </section>
-
-
-        {/* PROGRESS CARD */}
-        <section className="scan-progress-card">
-
-          <div className="progress-circle-area">
-
-            <div className="progress-ring">
-
-              <div className="progress-ring-inner">
-                <strong>68%</strong>
-
-                <span>Elapsed Time</span>
-
-                <b>00:12:45</b>
+          {activeTab === "logs" ? (
+            <div className="console-terminal">
+              {logs.map((log, index) => (
+                <div key={index} className="terminal-line">
+                  <span className="t-timestamp">{log.substring(0, 10)}</span>
+                  <span className="t-msg">{log.substring(10)}</span>
+                </div>
+              ))}
+              <div className="terminal-line pulsing-cursor">
+                [02:15:02] Analyzing database payload responses... █
               </div>
-
             </div>
+          ) : (
+            <div className="subdomains-table-view">
+              <div className="sub-header-row">
+                <span>Subdomain URL</span>
+                <span>Security Status</span>
+                <span>Resolved IP</span>
+              </div>
+              {subdomains.map((sub, idx) => (
+                <div className="sub-data-row" key={idx}>
+                  <strong className="sub-link">{sub.name}</strong>
+                  <span className="sub-status-badge">{sub.status}</span>
+                  <span className="sub-ip">{sub.ip}</span>
+                </div>
+              ))}
+            </div>
+          )}
+        </div>
 
+        {/* RIGHT COLUMN: LIVE VULNERABILITIES FEED */}
+        <div className="runningscan-card findings-card">
+          <div className="card-header">
+            <h3>Live Vulnerabilities</h3>
+            <span className="vuln-counter-badge">12 Detected</span>
           </div>
 
-
-          <div className="scan-information">
-
-            <div className="scan-info-heading">
-
-              <h2>Website Security Scan – Prod</h2>
-
-              <span>Full Security Scan</span>
-
+          <div className="findings-list">
+            <div className="finding-item critical">
+              <div className="sev-header">
+                <span className="sev-badge critical">CRITICAL</span>
+                <span className="vuln-cve">CVE-2024-3811</span>
+              </div>
+              <strong>SQL Injection in /api/v1/auth</strong>
+              <p>Unsanitized input parameter allows remote DB interrogation.</p>
             </div>
 
-
-            <div className="scan-target">
-
-              <small>Target</small>
-
-              <div>
-                <span>◎</span>
-                <strong>https://example.com</strong>
-                <span>↗</span>
+            <div className="finding-item high">
+              <div className="sev-header">
+                <span className="sev-badge high">HIGH</span>
+                <span className="vuln-cve">CORS-01</span>
               </div>
-
+              <strong>Wildcard CORS Misconfiguration</strong>
+              <p>Access-Control-Allow-Origin reflects unauthorized domains.</p>
             </div>
 
-
-            <div className="scan-id">
-
-              <small>Scan ID</small>
-
-              <strong>SCAN-2026-05-17-0012</strong>
-
+            <div className="finding-item medium">
+              <div className="sev-header">
+                <span className="sev-badge medium">MEDIUM</span>
+                <span className="vuln-cve">TLS-99</span>
+              </div>
+              <strong>Deprecated Cipher Suite Enabled</strong>
+              <p>Server accepts weak TLS 1.0/1.1 handshakes on port 443.</p>
             </div>
-
-
-            <div className="scan-meta">
-
-              <div>
-                <small>Started At</small>
-                <strong>May 17, 2026</strong>
-                <span>12:00:35 AM</span>
-              </div>
-
-              <div>
-                <small>Elapsed Time</small>
-                <strong>◷ 00:12:45</strong>
-              </div>
-
-              <div>
-                <small>Estimated Remaining</small>
-                <strong>⌛ 00:06:15</strong>
-              </div>
-
-              <div>
-                <small>Total Duration</small>
-                <strong>◷ 00:19:00</strong>
-              </div>
-
-            </div>
-
           </div>
+        </div>
 
-        </section>
-
-
-        {/* LIVE STATISTICS */}
-        <section className="live-statistics">
-
-          <div className="section-heading">
-            <h2>Live Scan Statistics</h2>
-            <a href="#">View All</a>
-          </div>
-
-
-          <div className="statistics-grid">
-
-            <div className="stat-card blue">
-              <span className="stat-icon">▣</span>
-              <small>Hosts Discovered</small>
-              <strong>12</strong>
-              <em>↑ 3 new</em>
-            </div>
-
-            <div className="stat-card cyan">
-              <span className="stat-icon">♧</span>
-              <small>Ports Scanned</small>
-              <strong>1,248</strong>
-              <em>↑ 312 new</em>
-            </div>
-
-            <div className="stat-card orange">
-              <span className="stat-icon">⬡</span>
-              <small>Vulnerabilities Found</small>
-              <strong>24</strong>
-              <em>↑ 6 new</em>
-            </div>
-
-            <div className="stat-card purple">
-              <span className="stat-icon">➤</span>
-              <small>Recon Requests</small>
-              <strong>3,562</strong>
-              <em>↑ 842 new</em>
-            </div>
-
-          </div>
-
-        </section>
-                {/* SCAN PHASES + LIVE FINDINGS */}
-        <section className="running-middle-grid">
-
-          {/* SCAN PHASES */}
-          <div className="scan-phases-card">
-
-            <div className="section-heading">
-              <h2>Scan Phases</h2>
-            </div>
-
-            <div className="scan-phase-layout">
-
-              <div className="phase-list">
-
-                <div className="phase-item completed">
-                  <span className="phase-number">1</span>
-                  <span>Target Validation</span>
-                  <strong>✓ Completed</strong>
-                </div>
-
-                <div className="phase-item completed">
-                  <span className="phase-number">2</span>
-                  <span>Host Discovery</span>
-                  <strong>✓ Completed</strong>
-                </div>
-
-                <div className="phase-item completed">
-                  <span className="phase-number">3</span>
-                  <span>Port Scanning</span>
-                  <strong>✓ Completed</strong>
-                </div>
-
-                <div className="phase-item active">
-                  <span className="phase-number">4</span>
-                  <span>Service Enumeration</span>
-                  <strong>◌ In Progress</strong>
-                </div>
-
-                <div className="phase-item waiting">
-                  <span className="phase-number">5</span>
-                  <span>Vulnerability Detection</span>
-                  <strong>— Waiting</strong>
-                </div>
-
-                <div className="phase-item waiting">
-                  <span className="phase-number">6</span>
-                  <span>Exploitation Tests</span>
-                  <strong>— Waiting</strong>
-                </div>
-
-                <div className="phase-item waiting">
-                  <span className="phase-number">7</span>
-                  <span>Report Generation</span>
-                  <strong>— Waiting</strong>
-                </div>
-
-              </div>
-
-
-              {/* CURRENT PHASE */}
-              <div className="current-phase">
-
-                <small>Current Phase</small>
-
-                <div className="current-phase-icon">
-                  ◫
-                </div>
-
-                <h3>Service Enumeration</h3>
-
-                <span className="phase-status">
-                  In Progress
-                </span>
-
-                <p>
-                  Identifying running services, versions,
-                  and configurations on discovered ports.
-                </p>
-
-                <div className="phase-progress-header">
-                  <span>Progress</span>
-                  <strong>75%</strong>
-                </div>
-
-                <div className="phase-progress-bar">
-                  <div className="phase-progress-value"></div>
-                </div>
-
-                <div className="current-task">
-                  <small>Current Task</small>
-
-                  <p>
-                    Enumerating SSH service on 192.168.1.10:22
-                  </p>
-                </div>
-
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* LIVE FINDINGS */}
-          <div className="live-findings-card">
-
-            <div className="section-heading">
-              <h2>Live Findings (24)</h2>
-              <a href="#">View All</a>
-            </div>
-
-            <div className="finding-list">
-
-              <div className="finding-item">
-
-                <span className="finding-severity high">
-                  High
-                </span>
-
-                <div className="finding-content">
-                  <strong>Outdated Server Version Detected</strong>
-                  <span>Apache httpd 2.2.15</span>
-                </div>
-
-                <time>12:10:35 AM</time>
-
-              </div>
-
-
-              <div className="finding-item">
-
-                <span className="finding-severity medium">
-                  Medium
-                </span>
-
-                <div className="finding-content">
-                  <strong>Directory Listing Enabled</strong>
-                  <span>/admin/</span>
-                </div>
-
-                <time>12:09:58 AM</time>
-
-              </div>
-
-
-              <div className="finding-item">
-
-                <span className="finding-severity low">
-                  Low
-                </span>
-
-                <div className="finding-content">
-                  <strong>Multiple HTTP Headers Found</strong>
-                  <span>X-Powered-By, Server</span>
-                </div>
-
-                <time>12:09:12 AM</time>
-
-              </div>
-
-
-              <div className="finding-item">
-
-                <span className="finding-severity info">
-                  Info
-                </span>
-
-                <div className="finding-content">
-                  <strong>SSL Certificate Information</strong>
-                  <span>Valid until Dec 12, 2026</span>
-                </div>
-
-                <time>12:08:45 AM</time>
-
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-                {/* LIVE ACTIVITY + TARGET MAP */}
-        <section className="running-bottom-grid">
-
-          {/* LIVE ACTIVITY LOG */}
-          <div className="activity-log-card">
-
-            <div className="section-heading">
-              <h2>Live Activity Log</h2>
-
-              <div className="activity-actions">
-                <button>Filter</button>
-                <a href="#">View Full Logs</a>
-              </div>
-            </div>
-
-            <div className="activity-log">
-
-              <div className="activity-row">
-                <time>12:10:35</time>
-                <span className="log-type info">[INFO]</span>
-                <p>Service enumeration started for discovered hosts.</p>
-              </div>
-
-              <div className="activity-row">
-                <time>12:10:12</time>
-                <span className="log-type success">[SUCCESS]</span>
-                <p>Host 192.168.1.10 responded successfully.</p>
-              </div>
-
-              <div className="activity-row">
-                <time>12:09:58</time>
-                <span className="log-type info">[INFO]</span>
-                <p>Scanning TCP services on port range 1–10000.</p>
-              </div>
-
-              <div className="activity-row">
-                <time>12:09:42</time>
-                <span className="log-type warning">[WARN]</span>
-                <p>Potential outdated Apache service detected.</p>
-              </div>
-
-              <div className="activity-row">
-                <time>12:09:12</time>
-                <span className="log-type success">[SUCCESS]</span>
-                <p>12 active hosts discovered.</p>
-              </div>
-
-              <div className="activity-row">
-                <time>12:08:45</time>
-                <span className="log-type info">[INFO]</span>
-                <p>Target validation completed successfully.</p>
-              </div>
-
-            </div>
-
-          </div>
-
-
-          {/* TARGET MAP */}
-          <div className="target-map-card">
-
-            <div className="section-heading">
-              <h2>Target Map</h2>
-              <span className="map-status">12 Hosts</span>
-            </div>
-
-            <div className="target-map">
-
-              <div className="map-line line-one"></div>
-              <div className="map-line line-two"></div>
-              <div className="map-line line-three"></div>
-              <div className="map-line line-four"></div>
-
-
-              <div className="target-node main-node">
-                <span>◎</span>
-                <strong>Target</strong>
-                <small>example.com</small>
-              </div>
-
-              <div className="target-node host-one">
-                <span>●</span>
-                <small>web-01</small>
-              </div>
-
-              <div className="target-node host-two">
-                <span>●</span>
-                <small>api-01</small>
-              </div>
-
-              <div className="target-node host-three">
-                <span>●</span>
-                <small>db-01</small>
-              </div>
-
-              <div className="target-node host-four">
-                <span>●</span>
-                <small>cdn-01</small>
-              </div>
-
-            </div>
-
-          </div>
-
-        </section>
-
-
-        {/* ENGINE STATUS */}
-        <section className="engine-status-card">
-
-          <div className="engine-status-item">
-
-            <span className="engine-icon purple">⚙</span>
-
-            <div>
-              <small>Scanning Engine</small>
-              <strong>Recon Engine v2.4.1</strong>
-              <span className="engine-online">
-                ● Online
-              </span>
-            </div>
-
-          </div>
-
-
-          <div className="engine-status-item">
-
-            <span className="engine-icon blue">◫</span>
-
-            <div>
-              <small>Resource Usage</small>
-
-              <strong>CPU 42% &nbsp; / &nbsp; RAM 3.2 GB</strong>
-
-              <div className="resource-bar">
-                <span></span>
-              </div>
-            </div>
-
-          </div>
-
-
-          <div className="engine-status-item">
-
-            <span className="engine-icon cyan">↯</span>
-
-            <div>
-              <small>Scan Speed</small>
-              <strong>287 req/sec</strong>
-              <span className="engine-muted">
-                Stable
-              </span>
-            </div>
-
-          </div>
-
-
-          <div className="engine-status-item">
-
-            <span className="engine-icon red">!</span>
-
-            <div>
-              <small>Threats Found</small>
-              <strong className="threat-count">24</strong>
-              <span className="engine-muted">
-                3 high severity
-              </span>
-            </div>
-
-          </div>
-
-        </section>
-
-      </main>
-
+      </div>
     </div>
   );
 }
-
-export default RunningScan;

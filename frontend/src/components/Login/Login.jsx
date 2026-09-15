@@ -31,11 +31,11 @@ export default function Login() {
             className="login-logo"
           />
 
-          <div className="login-brand-name">
-            <h1>
-            Recon<span>IX</span>
-            </h1>
-            <p>Reconnaissance Platform</p>
+          <div className="login-brand-text-group">
+            <div className="login-brand-name">
+              Recon<span>IX</span>
+            </div>
+            <span className="login-brand-subtitle">Reconnaissance Platform</span>
           </div>
 
         </div>
@@ -76,15 +76,15 @@ export default function Login() {
 
           <h1 className="login-heading">
 
-  <span className="login-heading-white">
-    Uncover. Analyze.
-  </span>
+            <span className="login-heading-white">
+               Discover. Analyze.
+            </span>
 
-  <span className="login-heading-blue">
-  <span className="secure-word">Secure</span> Everything.
-  </span>
+            <span className="login-heading-blue">
+              <span className="secure-word">Secure</span> Everything.
+            </span>
 
-</h1>
+          </h1>
 
 
           <p className="login-description">

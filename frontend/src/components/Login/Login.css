@@ -53,8 +53,8 @@
 
 
 .login-logo {
-    width: 58px;
-    height:58px;
+    width: 50px;
+    height: 50px;
 
     object-fit: contain;
 
@@ -66,17 +66,14 @@
 }
 
 
-.login-brand-name h1 {
-    margin: 0;
-    font-size: 30px;
+.login-brand-name {
+    font-size: 27px;
     font-weight: 800;
-    color: #fff;
-    line-height: 1;
-    
+    letter-spacing: -0.5px;
 }
 
 
-.login-brand-name h1 span {
+.login-brand-name span {
     background:
         linear-gradient(
             90deg,
@@ -89,18 +86,6 @@
     -webkit-text-fill-color: transparent;
 
     background-clip: text;
-}
-.login-brand-name h1 p {
-    margin: 4px 0 0;
-    color: #a6a6bb;
-    font-size: 13px;
-    letter-spacing: .4px;
-    
-}
-p {
-    margin: 4px 0 0;
-    color: #a6a6bb;
-    font-size: 13px;
 }
 
 
@@ -250,13 +235,13 @@ p {
 
     max-width: 650px;
 
-    font-size: clamp(48px, 5vw, 76px);
+    font-size: clamp(40px, 4.5vw, 64px);
 
-    line-height: 0.98;
+    line-height: 1.15;
 
     font-weight: 800;
 
-    letter-spacing: -2.5px;
+    letter-spacing: -1.5px;
 }
 
 
@@ -267,7 +252,7 @@ p {
 
 .login-heading-blue {
     display: block;
-    margin-top: 8px;
+    margin-top: 4px;
     color: #20cfff;
 }
 
@@ -481,7 +466,7 @@ p {
 
     font-size: 10px;
 
-    line-height: 1.7;
+    line-height: 1.5;
 }
 
 
@@ -1035,7 +1020,9 @@ p {
         font-size: 11px;
     }
 
-    
+    .login-brand-name {
+        font-size: 23px;
+    }
 
     .login-main {
         width: 94%;
@@ -1130,4 +1117,17 @@ p {
     -webkit-text-fill-color: transparent;
 
     background-color: transparent;
+}
+.login-brand-text-group {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.login-brand-subtitle {
+    font-size: 11px;
+    color: #8f95ab;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+    margin-top: 3px;
 }

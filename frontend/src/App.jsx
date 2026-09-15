@@ -7,6 +7,7 @@ import ForgotPassword from "./components/ForgotPassword/ForgotPassword";
 import NewScan from "./components/NewScan/NewScan";
 import RunningScan from "./components/RunningScan/RunningScan";
 import ScanResults from "./components/ScanResults/ScanResults";
+import Reports from "./components/Reports/Reports";
 import Scans from "./components/Scans/Scans";
 import Landing from "./components/Landing/Landing";
 
@@ -32,6 +33,8 @@ function App() {
         <Route path="/running-scan" element={<RunningScan />} />
 
         <Route path="/scan-results" element={<ScanResults />} />
+
+        <Route path="/reports" element={<Reports />} />
 
       </Routes>
     </BrowserRouter>
