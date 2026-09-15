@@ -1,6 +1,7 @@
 import React from "react";
 import "./ScanResults.css";
 import reconixLogo from "../../assets/logo/ReconIXLogo.png";
+import { Link } from "react-router-dom";
 
 function ScanResults() {
   return (
@@ -18,16 +19,24 @@ function ScanResults() {
         </div>
 
         <nav className="scan-results-nav">
-          <a href="#">⌂ <span>Dashboard</span></a>
-          <a href="#">▣ <span>Assets</span></a>
-          <a href="#" className="active">◉ <span>Scans</span></a>
-          <a href="#">◈ <span>Vulnerabilities</span></a>
-          <a href="#">◉ <span>Threat Intelligence</span></a>
-          <a href="/reports">▤ <span>Reports</span></a>
-          <a href="#">♙ <span>Automation</span></a>
-          <a href="#">✧ <span>Integrations</span></a>
-          <a href="#">⚙ <span>Settings</span></a>
-        </nav>
+  <Link to="/dashboard">⌂ <span>Dashboard</span></Link>
+
+  <Link to="/assets">▣ <span>Assets</span></Link>
+
+  <Link to="/scans" className="active">◉ <span>Scans</span></Link>
+
+  <a href="#">◈ <span>Vulnerabilities</span></a>
+
+  <a href="#">◉ <span>Threat Intelligence</span></a>
+
+  <Link to="/reports">▤ <span>Reports</span></Link>
+
+  <a href="#">♙ <span>Automation</span></a>
+
+  <a href="#">✧ <span>Integrations</span></a>
+
+  <a href="#">⚙ <span>Settings</span></a>
+</nav>
 
         {/* ENTERPRISE PLAN */}
         <div className="scan-results-plan">
