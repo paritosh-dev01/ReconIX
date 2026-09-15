@@ -3,9 +3,11 @@ import "./Dashboard.css";
 import Assets from "../Assets/Assets";
 import Scans from "../Scans/Scans";
 import ReconIXLogo from "../../assets/logo/ReconIXLogo.png";
+import { useNavigate } from "react-router-dom";
 
 const Dashboard = () => {
   const [activePage, setActivePage] = useState("dashboard");
+  const navigate = useNavigate();
 
   const vulnerabilities = [
     { name: "SQL Injection", severity: "Critical", assets: 12, found: "2 hours ago" },
@@ -57,7 +59,7 @@ const Dashboard = () => {
           </button>
           <button
             className={`dashboard-nav-item ${activePage === "assets" ? "active" : ""}`}
-            onClick={() => setActivePage("assets")}
+            onClick={() => navigate("/assets")}
           >
             <span>▣</span> Assets
           </button>

@@ -10,6 +10,7 @@ import ScanResults from "./components/ScanResults/ScanResults";
 import Reports from "./components/Reports/Reports";
 import Scans from "./components/Scans/Scans";
 import Landing from "./components/Landing/Landing";
+import Assets from "./components/Assets/Assets";
 
 function App() {
   return (
@@ -25,6 +26,8 @@ function App() {
         <Route path="/forgot-password" element={<ForgotPassword />} />
         
         <Route path="/dashboard" element={<Dashboard />} />
+
+        <Route path="/assets" element={<Assets />} />
 
         <Route path="/scans" element={<Scans />} />
 
