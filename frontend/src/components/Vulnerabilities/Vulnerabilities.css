@@ -1,0 +1,1150 @@
+/* =========================================================
+   RECONIX — SCREEN 15
+   VULNERABILITIES
+========================================================= */
+
+.vulnerabilities-page {
+  width: 100%;
+  min-height: 100%;
+  box-sizing: border-box;
+
+  padding: 26px 32px 40px;
+
+  color: #ffffff;
+
+  font-family:
+    Inter,
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    sans-serif;
+
+  background:
+    radial-gradient(
+      circle at 20% 0%,
+      rgba(168, 59, 255, 0.07),
+      transparent 30%
+    ),
+    radial-gradient(
+      circle at 85% 35%,
+      rgba(32, 207, 255, 0.025),
+      transparent 28%
+    ),
+    var(--recon-bg, #070816);
+}
+
+
+/* =========================================================
+   PAGE HEADER
+========================================================= */
+
+.vulnerabilities-header {
+  min-height: 58px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  margin-bottom: 22px;
+}
+
+.vulnerabilities-title-row {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.vulnerabilities-title-icon {
+  width: 55px;
+  height: 55px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 14px;
+
+  border: 1px solid rgba(168, 59, 255, 0.6);
+
+  background: rgba(168, 59, 255, 0.07);
+
+  color: #d35cff;
+
+  font-size: 27px;
+
+  box-shadow:
+    0 0 22px rgba(168, 59, 255, 0.12);
+}
+
+.vulnerabilities-header h1 {
+  margin: 0 0 5px;
+
+  color: #ffffff;
+
+  font-size: 30px;
+  line-height: 1.1;
+  font-weight: 800;
+
+  letter-spacing: -0.5px;
+}
+
+.vulnerabilities-header p {
+  margin: 0;
+
+  color: #8f95ab;
+
+  font-size: 14px;
+  line-height: 1.5;
+}
+
+.vulnerabilities-scan-btn {
+  height: 43px;
+
+  padding: 0 18px;
+
+  border: none;
+  border-radius: 9px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #8b2cff,
+      #d35cff,
+      #20cfff
+    );
+
+  color: #ffffff;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 24px rgba(101, 69, 255, 0.22);
+
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease;
+}
+
+.vulnerabilities-scan-btn:hover {
+  transform: translateY(-1px);
+
+  box-shadow:
+    0 10px 28px rgba(101, 69, 255, 0.3);
+}
+
+
+/* =========================================================
+   STAT CARDS
+========================================================= */
+
+.vulnerabilities-stats {
+  width: 100%;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-bottom: 20px;
+}
+
+.vulnerability-stat-card {
+  min-height: 88px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 15px 17px;
+
+  box-sizing: border-box;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 13px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(10, 13, 30, 0.96),
+      rgba(5, 8, 23, 0.96)
+    );
+
+  box-shadow:
+    0 10px 28px rgba(0, 0, 0, 0.12);
+
+  transition:
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.vulnerability-stat-card:hover {
+  transform: translateY(-2px);
+
+  border-color:
+    rgba(168, 59, 255, 0.25);
+}
+
+.vulnerability-stat-icon {
+  width: 42px;
+  height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 10px;
+
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.vulnerability-stat-icon.purple {
+  color: #d35cff;
+
+  border: 1px solid rgba(211, 92, 255, 0.2);
+
+  background: rgba(211, 92, 255, 0.07);
+}
+
+.vulnerability-stat-icon.red {
+  color: #ff6685;
+
+  border: 1px solid rgba(255, 102, 133, 0.2);
+
+  background: rgba(255, 102, 133, 0.07);
+}
+
+.vulnerability-stat-icon.orange {
+  color: #ffbd4a;
+
+  border: 1px solid rgba(255, 189, 74, 0.2);
+
+  background: rgba(255, 189, 74, 0.07);
+}
+
+.vulnerability-stat-icon.cyan {
+  color: #20cfff;
+
+  border: 1px solid rgba(32, 207, 255, 0.2);
+
+  background: rgba(32, 207, 255, 0.07);
+}
+
+.vulnerability-stat-card span {
+  display: block;
+
+  margin-bottom: 4px;
+
+  color: #8f95ab;
+
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.vulnerability-stat-card strong {
+  display: block;
+
+  color: #ffffff;
+
+  font-size: 25px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+
+/* =========================================================
+   MAIN WORKSPACE
+========================================================= */
+
+.vulnerabilities-workspace {
+  display: grid;
+
+  grid-template-columns:
+    minmax(0, 1fr)
+    315px;
+
+  gap: 18px;
+
+  align-items: start;
+}
+
+
+/* =========================================================
+   MAIN FINDINGS PANEL
+========================================================= */
+
+.vulnerabilities-panel {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 11, 27, 0.97),
+      rgba(4, 7, 19, 0.97)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.14);
+}
+
+.vulnerabilities-panel-header {
+  min-height: 78px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 20px;
+
+  padding: 15px 18px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vulnerabilities-panel-header h2 {
+  margin: 0 0 5px;
+
+  color: #ffffff;
+
+  font-size: 17px;
+  font-weight: 750;
+}
+
+.vulnerabilities-panel-header p {
+  margin: 0;
+
+  color: #777d93;
+
+  font-size: 12px;
+}
+
+
+/* =========================================================
+   FILTERS
+========================================================= */
+
+.vulnerability-filters {
+  display: flex;
+
+  align-items: center;
+
+  gap: 6px;
+
+  flex-wrap: wrap;
+
+  justify-content: flex-end;
+}
+
+.vulnerability-filters button {
+  height: 30px;
+
+  padding: 0 10px;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 7px;
+
+  background: rgba(255, 255, 255, 0.025);
+
+  color: #858ba1;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  cursor: pointer;
+
+  transition:
+    color 0.2s ease,
+    border-color 0.2s ease,
+    background 0.2s ease;
+}
+
+.vulnerability-filters button:hover {
+  color: #ffffff;
+
+  border-color:
+    rgba(168, 59, 255, 0.35);
+
+  background:
+    rgba(168, 59, 255, 0.06);
+}
+
+.vulnerability-filters button.active {
+  color: #ffffff;
+
+  border-color:
+    rgba(168, 59, 255, 0.55);
+
+  background:
+    linear-gradient(
+      90deg,
+      rgba(139, 44, 255, 0.22),
+      rgba(211, 92, 255, 0.12)
+    );
+
+  box-shadow:
+    0 0 12px rgba(168, 59, 255, 0.08);
+}
+
+
+/* =========================================================
+   TABLE
+========================================================= */
+
+.vulnerabilities-table {
+  width: 100%;
+}
+
+.vulnerability-table-head,
+.vulnerability-table-row {
+  display: grid;
+
+  grid-template-columns:
+    minmax(230px, 1.7fr)
+    minmax(125px, 1fr)
+    90px
+    85px
+    90px;
+
+  column-gap: 12px;
+
+  align-items: center;
+}
+
+.vulnerability-table-head {
+  min-height: 43px;
+
+  padding: 0 18px;
+
+  box-sizing: border-box;
+
+  background:
+    rgba(255, 255, 255, 0.018);
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.vulnerability-table-head span {
+  color: #666d82;
+
+  font-size: 9px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.8px;
+
+  white-space: nowrap;
+}
+
+.vulnerability-table-row {
+  min-height: 76px;
+
+  padding: 9px 18px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.05);
+
+  transition:
+    background 0.2s ease;
+}
+
+.vulnerability-table-row:last-child {
+  border-bottom: none;
+}
+
+.vulnerability-table-row:hover {
+  background:
+    rgba(168, 59, 255, 0.025);
+}
+
+
+/* =========================================================
+   VULNERABILITY NAME
+========================================================= */
+
+.vulnerability-main {
+  min-width: 0;
+
+  display: flex;
+
+  align-items: center;
+
+  gap: 11px;
+}
+
+.vulnerability-row-icon {
+  width: 34px;
+  height: 34px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  color: #ff6685;
+
+  border: 1px solid rgba(255, 102, 133, 0.17);
+
+  background:
+    rgba(255, 102, 133, 0.06);
+
+  font-size: 14px;
+}
+
+.vulnerability-main > div:last-child {
+  min-width: 0;
+}
+
+.vulnerability-main strong {
+  display: block;
+
+  overflow: hidden;
+
+  color: #e9ebf4;
+
+  font-size: 12px;
+  font-weight: 700;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.vulnerability-main span {
+  display: block;
+
+  margin-top: 4px;
+
+  color: #737a8f;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   ASSET
+========================================================= */
+
+.vulnerability-asset {
+  min-width: 0;
+
+  display: flex;
+  align-items: center;
+
+  gap: 7px;
+
+  overflow: hidden;
+
+  color: #aeb4c6;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+
+  text-overflow: ellipsis;
+}
+
+.asset-dot {
+  width: 6px;
+  height: 6px;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  background: #20cfff;
+
+  box-shadow:
+    0 0 7px rgba(32, 207, 255, 0.55);
+}
+
+
+/* =========================================================
+   SEVERITY
+========================================================= */
+
+.severity-badge {
+  display: inline-flex;
+
+  align-items: center;
+  justify-content: center;
+
+  min-width: 54px;
+
+  height: 25px;
+
+  padding: 0 7px;
+
+  box-sizing: border-box;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+
+  font-weight: 700;
+}
+
+.severity-badge.critical {
+  color: #ff6685;
+
+  border:
+    1px solid rgba(255, 102, 133, 0.2);
+
+  background:
+    rgba(255, 102, 133, 0.08);
+}
+
+.severity-badge.high {
+  color: #ff9b5c;
+
+  border:
+    1px solid rgba(255, 155, 92, 0.2);
+
+  background:
+    rgba(255, 155, 92, 0.08);
+}
+
+.severity-badge.medium {
+  color: #ffbd4a;
+
+  border:
+    1px solid rgba(255, 189, 74, 0.2);
+
+  background:
+    rgba(255, 189, 74, 0.08);
+}
+
+.severity-badge.low {
+  color: #20cfff;
+
+  border:
+    1px solid rgba(32, 207, 255, 0.2);
+
+  background:
+    rgba(32, 207, 255, 0.07);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.vulnerability-status {
+  display: inline-flex;
+
+  align-items: center;
+
+  min-height: 24px;
+
+  padding: 0 7px;
+
+  border-radius: 6px;
+
+  font-size: 9px;
+
+  font-weight: 650;
+}
+
+.vulnerability-status.open {
+  color: #ffbd4a;
+
+  border:
+    1px solid rgba(255, 189, 74, 0.18);
+
+  background:
+    rgba(255, 189, 74, 0.06);
+}
+
+.vulnerability-status.resolved {
+  color: #36e58a;
+
+  border:
+    1px solid rgba(54, 229, 138, 0.18);
+
+  background:
+    rgba(54, 229, 138, 0.06);
+}
+
+
+/* =========================================================
+   TIME
+========================================================= */
+
+.vulnerability-time {
+  color: #777d93;
+
+  font-size: 10px;
+
+  white-space: nowrap;
+}
+
+
+/* =========================================================
+   RISK OVERVIEW
+========================================================= */
+
+.vulnerability-summary-panel {
+  min-width: 0;
+
+  overflow: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.08);
+
+  border-radius: 14px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(8, 11, 27, 0.97),
+      rgba(4, 7, 19, 0.97)
+    );
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.14);
+}
+
+.summary-header {
+  min-height: 70px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 11px;
+
+  padding: 13px 16px;
+
+  box-sizing: border-box;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.06);
+}
+
+.summary-icon {
+  width: 36px;
+  height: 36px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-shrink: 0;
+
+  border-radius: 9px;
+
+  color: #20cfff;
+
+  border: 1px solid rgba(32, 207, 255, 0.2);
+
+  background:
+    rgba(32, 207, 255, 0.06);
+
+  font-size: 16px;
+}
+
+.summary-header h2 {
+  margin: 0 0 4px;
+
+  color: #ffffff;
+
+  font-size: 16px;
+  font-weight: 750;
+}
+
+.summary-header p {
+  margin: 0;
+
+  color: #777d93;
+
+  font-size: 11px;
+}
+
+
+/* =========================================================
+   RISK SCORE
+========================================================= */
+
+.risk-score {
+  display: flex;
+  align-items: center;
+
+  gap: 14px;
+
+  padding: 18px 16px;
+}
+
+.risk-score-circle {
+  width: 68px;
+  height: 68px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  flex-direction: column;
+
+  flex-shrink: 0;
+
+  border-radius: 50%;
+
+  border:
+    2px solid rgba(211, 92, 255, 0.5);
+
+  background:
+    radial-gradient(
+      circle,
+      rgba(168, 59, 255, 0.16),
+      rgba(168, 59, 255, 0.025) 65%
+    );
+
+  box-shadow:
+    0 0 22px rgba(168, 59, 255, 0.09);
+}
+
+.risk-score-circle strong {
+  color: #ffffff;
+
+  font-size: 22px;
+  line-height: 1;
+
+  font-weight: 800;
+}
+
+.risk-score-circle span {
+  margin-top: 3px;
+
+  color: #777d93;
+
+  font-size: 9px;
+}
+
+.risk-score > div:last-child {
+  min-width: 0;
+
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 5px;
+}
+
+.risk-score > div:last-child strong {
+  color: #e9ebf4;
+
+  font-size: 12px;
+}
+
+.risk-score > div:last-child span {
+  color: #777d93;
+
+  font-size: 10px;
+
+  line-height: 1.4;
+}
+
+
+/* =========================================================
+   RISK BREAKDOWN
+========================================================= */
+
+.risk-breakdown {
+  padding: 0 16px 8px;
+}
+
+.risk-item {
+  margin-bottom: 14px;
+}
+
+.risk-item > div:first-child {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  margin-bottom: 6px;
+}
+
+.risk-item > div:first-child strong {
+  color: #aeb4c6;
+
+  font-size: 10px;
+}
+
+.risk-label {
+  font-size: 10px;
+
+  font-weight: 650;
+}
+
+.risk-label.critical {
+  color: #ff6685;
+}
+
+.risk-label.high {
+  color: #ff9b5c;
+}
+
+.risk-label.medium {
+  color: #ffbd4a;
+}
+
+.risk-label.low {
+  color: #20cfff;
+}
+
+.risk-bar {
+  width: 100%;
+  height: 5px;
+
+  overflow: hidden;
+
+  border-radius: 10px;
+
+  background:
+    rgba(255, 255, 255, 0.055);
+}
+
+.risk-fill {
+  display: block;
+
+  height: 100%;
+
+  border-radius: inherit;
+}
+
+.critical-fill {
+  background: #ff6685;
+}
+
+.high-fill {
+  background: #ff9b5c;
+}
+
+.medium-fill {
+  background: #ffbd4a;
+}
+
+.low-fill {
+  background: #20cfff;
+}
+
+
+/* =========================================================
+   SUMMARY FOOTER
+========================================================= */
+
+.summary-divider {
+  height: 1px;
+
+  margin: 3px 16px 0;
+
+  background:
+    rgba(255, 255, 255, 0.06);
+}
+
+.summary-footer {
+  min-height: 42px;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 0 16px;
+
+  border-bottom:
+    1px solid rgba(255, 255, 255, 0.04);
+}
+
+.summary-footer:last-child {
+  border-bottom: none;
+}
+
+.summary-footer span {
+  color: #777d93;
+
+  font-size: 10px;
+}
+
+.summary-footer strong {
+  color: #cfd3df;
+
+  font-size: 10px;
+}
+
+
+/* =========================================================
+   RESPONSIVE — TABLET
+========================================================= */
+
+@media (max-width: 1150px) {
+
+  .vulnerabilities-page {
+    padding: 24px 25px 35px;
+  }
+
+  .vulnerabilities-stats {
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+
+  .vulnerabilities-workspace {
+    grid-template-columns: 1fr;
+  }
+
+  .vulnerability-summary-panel {
+    width: 100%;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — SMALL
+========================================================= */
+
+@media (max-width: 800px) {
+
+  .vulnerabilities-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .vulnerabilities-scan-btn {
+    width: 100%;
+  }
+
+  .vulnerability-table-head {
+    display: none;
+  }
+
+  .vulnerability-table-row {
+    grid-template-columns:
+      1fr
+      90px
+      85px;
+
+    row-gap: 8px;
+
+    padding: 14px 16px;
+  }
+
+  .vulnerability-main {
+    grid-column: 1 / -1;
+  }
+
+  .vulnerability-asset {
+    grid-column: 1;
+  }
+
+  .vulnerability-time {
+    display: none;
+  }
+
+  .vulnerabilities-panel-header {
+    align-items: flex-start;
+
+    flex-direction: column;
+  }
+
+  .vulnerability-filters {
+    width: 100%;
+
+    justify-content: flex-start;
+  }
+}
+
+
+/* =========================================================
+   RESPONSIVE — MOBILE
+========================================================= */
+
+@media (max-width: 600px) {
+
+  .vulnerabilities-page {
+    padding: 20px 15px 30px;
+  }
+
+  .vulnerabilities-title-icon {
+    width: 46px;
+    height: 46px;
+
+    font-size: 23px;
+  }
+
+  .vulnerabilities-header h1 {
+    font-size: 25px;
+  }
+
+  .vulnerabilities-header p {
+    font-size: 12px;
+  }
+
+  .vulnerabilities-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .vulnerability-stat-card {
+    min-height: 78px;
+  }
+
+  .vulnerabilities-panel-header {
+    padding: 14px;
+  }
+
+  .vulnerability-table-row {
+    grid-template-columns:
+      1fr
+      75px;
+  }
+
+  .vulnerability-asset {
+    grid-column: 1 / -1;
+  }
+
+  .vulnerability-status {
+    justify-self: end;
+  }
+
+  .vulnerability-main strong {
+    font-size: 11px;
+  }
+
+  .vulnerability-main span,
+  .vulnerability-asset {
+    font-size: 9px;
+  }
+
+  .risk-score {
+    padding: 16px;
+  }
+}
