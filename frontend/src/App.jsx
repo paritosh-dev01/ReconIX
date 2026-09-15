@@ -14,6 +14,7 @@ import AssetDetails from "./components/AssetDetails/AssetDetails";
 import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
 import Vulnerabilities from "./components/Vulnerabilities/Vulnerabilities";
+import ThreatIntelligence from "./components/ThreatIntelligence/ThreatIntelligence";
 
 
 
@@ -53,6 +54,8 @@ function App() {
         <Route path="/profile" element={<Profile />} />
 
         <Route path="/vulnerabilities" element={<Vulnerabilities />} />
+
+        <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
 
       </Routes>
     </BrowserRouter>
