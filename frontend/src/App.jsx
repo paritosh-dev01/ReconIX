@@ -1,5 +1,4 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-
 import Dashboard from "./components/Dashboard/Dashboard";
 import Login from "./components/Login/Login";
 import Signup from "./components/Signup/Signup";
@@ -12,6 +11,8 @@ import Scans from "./components/Scans/Scans";
 import Landing from "./components/Landing/Landing";
 import Assets from "./components/Assets/Assets";
 import AssetDetails from "./components/AssetDetails/AssetDetails";
+import Settings from "./components/Settings/Settings";
+
 
 
 function App() {
@@ -44,6 +45,8 @@ function App() {
         <Route path="/scan-results" element={<ScanResults />} />
 
         <Route path="/reports" element={<Reports />} />
+
+        <Route path="/settings" element={<Settings />} />
 
       </Routes>
     </BrowserRouter>
