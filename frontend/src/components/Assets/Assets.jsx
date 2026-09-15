@@ -1,4 +1,5 @@
 import { useMemo, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import "./Assets.css";
 
 const initialAssets = [
@@ -77,6 +78,8 @@ const initialAssets = [
 ];
 
 function Assets() {
+  const navigate = useNavigate();
+
   const [assets, setAssets] = useState(initialAssets);
   const [search, setSearch] = useState("");
   const [typeFilter, setTypeFilter] = useState("All Types");
@@ -115,36 +118,42 @@ function Assets() {
     setOpenMenu(null);
   };
 
-  const handleView = (asset) => {
-    window.alert(`Opening asset: ${asset.name}`);
-  };
-
   const handleMore = (id) => {
     setOpenMenu(openMenu === id ? null : id);
   };
 
   return (
     <div className="assets-page">
+
       {/* ================= PAGE HEADER ================= */}
 
       <section className="assets-page-header">
         <div className="assets-title-wrap">
-          <div className="assets-title-icon">◎</div>
+
+          <div className="assets-title-icon">
+            ◎
+          </div>
 
           <div>
             <h1>Asset Explorer</h1>
+
             <p>
               Discover, monitor and investigate your digital assets.
             </p>
           </div>
+
         </div>
       </section>
 
       {/* ================= STATISTICS ================= */}
 
       <section className="assets-stat-grid">
+
         <div className="asset-stat-card">
-          <div className="asset-stat-icon purple">▤</div>
+          <div className="asset-stat-icon purple">
+            ▤
+          </div>
+
           <div>
             <span>Total Assets</span>
             <strong>128</strong>
@@ -153,7 +162,10 @@ function Assets() {
         </div>
 
         <div className="asset-stat-card">
-          <div className="asset-stat-icon cyan">◎</div>
+          <div className="asset-stat-icon cyan">
+            ◎
+          </div>
+
           <div>
             <span>Domains</span>
             <strong>18</strong>
@@ -162,7 +174,10 @@ function Assets() {
         </div>
 
         <div className="asset-stat-card">
-          <div className="asset-stat-icon purple">⌘</div>
+          <div className="asset-stat-icon purple">
+            ⌘
+          </div>
+
           <div>
             <span>Subdomains</span>
             <strong>37</strong>
@@ -171,7 +186,10 @@ function Assets() {
         </div>
 
         <div className="asset-stat-card">
-          <div className="asset-stat-icon purple">▣</div>
+          <div className="asset-stat-icon purple">
+            ▣
+          </div>
+
           <div>
             <span>Live Hosts</span>
             <strong>84</strong>
@@ -180,43 +198,57 @@ function Assets() {
         </div>
 
         <div className="asset-stat-card">
-          <div className="asset-stat-icon purple">⌘</div>
+          <div className="asset-stat-icon purple">
+            ⌘
+          </div>
+
           <div>
             <span>Open Ports</span>
             <strong>142</strong>
             <small>↑ 22% from last scan</small>
           </div>
         </div>
+
       </section>
 
       {/* ================= MAIN EXPLORER ================= */}
 
       <section className="assets-explorer-card">
-        {/* Panel header */}
+
+        {/* Explorer Header */}
 
         <div className="assets-explorer-header">
+
           <div className="assets-explorer-title">
-            <div className="assets-layer-icon">▱</div>
+
+            <div className="assets-layer-icon">
+              ▱
+            </div>
 
             <div>
               <h2>All Assets</h2>
+
               <p>
                 Browse and investigate assets discovered across your attack
                 surface.
               </p>
             </div>
+
           </div>
 
           <div className="assets-updated">
             <span>◷</span>
             Last Updated: 2 hours ago
           </div>
+
         </div>
 
         {/* ================= FILTER BAR ================= */}
 
         <div className="assets-filter-bar">
+
           <div className="assets-search-box">
+
             <span>⌕</span>
 
             <input
@@ -228,6 +260,7 @@ function Assets() {
               }}
               placeholder="Search assets..."
             />
+
           </div>
 
           <select
@@ -264,13 +297,14 @@ function Assets() {
             <span>⟳</span>
             Refresh
           </button>
+
         </div>
 
         {/* ================= TABLE ================= */}
 
         <div className="assets-table-wrapper">
+
           <div className="assets-table">
-            {/* Header */}
 
             <div className="assets-table-head">
               <span>ASSET</span>
@@ -283,20 +317,28 @@ function Assets() {
               <span>ACTION</span>
             </div>
 
-            {/* Rows */}
-
             {filteredAssets.length > 0 ? (
+
               filteredAssets.map((asset) => (
-                <div className="assets-table-row" key={asset.id}>
+
+                <div
+                  className="assets-table-row"
+                  key={asset.id}
+                >
+
                   {/* Asset */}
 
                   <div className="asset-name-cell">
-                    <div className="asset-row-icon">{asset.icon}</div>
+
+                    <div className="asset-row-icon">
+                      {asset.icon}
+                    </div>
 
                     <div>
                       <strong>{asset.name}</strong>
                       <small>{asset.description}</small>
                     </div>
+
                   </div>
 
                   {/* Type */}
@@ -323,14 +365,20 @@ function Assets() {
 
                   {/* IP */}
 
-                  <span className="asset-ip">{asset.ip}</span>
+                  <span className="asset-ip">
+                    {asset.ip}
+                  </span>
 
                   {/* Technologies */}
 
                   <div className="asset-tech-list">
+
                     {asset.technologies.map((tech, index) => (
-                      <span key={index}>{tech}</span>
+                      <span key={index}>
+                        {tech}
+                      </span>
                     ))}
+
                   </div>
 
                   {/* Risk */}
@@ -352,15 +400,21 @@ function Assets() {
                   {/* Actions */}
 
                   <div className="asset-actions">
+
                     <button
                       type="button"
                       className="asset-view-btn"
-                      onClick={() => handleView(asset)}
+                      onClick={() =>
+                        navigate(
+                          `/asset-details/${encodeURIComponent(asset.name)}`
+                        )
+                      }
                     >
                       View
                     </button>
 
                     <div className="asset-more-wrap">
+
                       <button
                         type="button"
                         className="asset-more-btn"
@@ -371,66 +425,104 @@ function Assets() {
 
                       {openMenu === asset.id && (
                         <div className="asset-more-menu">
-                          <button type="button">View Details</button>
-                          <button type="button">Run Scan</button>
+
+                          <button type="button">
+                            View Details
+                          </button>
+
+                          <button type="button">
+                            Run Scan
+                          </button>
+
                         </div>
                       )}
+
                     </div>
+
                   </div>
+
                 </div>
+
               ))
+
             ) : (
+
               <div className="assets-empty-state">
+
                 <div>⌕</div>
+
                 <h3>No assets found</h3>
+
                 <p>
                   Try changing your search or filter settings.
                 </p>
+
               </div>
+
             )}
+
           </div>
+
         </div>
 
         {/* ================= FOOTER ================= */}
 
         <div className="assets-table-footer">
+
           <span>
             Showing {filteredAssets.length} of 128 assets
           </span>
 
           <div className="assets-pagination">
+
             <button
               type="button"
               disabled={currentPage === 1}
               onClick={() =>
-                setCurrentPage((page) => Math.max(1, page - 1))
+                setCurrentPage((page) =>
+                  Math.max(1, page - 1)
+                )
               }
             >
               ‹
             </button>
 
             {[1, 2, 3, 4, 5].map((page) => (
+
               <button
                 type="button"
                 key={page}
-                className={currentPage === page ? "active" : ""}
-                onClick={() => setCurrentPage(page)}
+                className={
+                  currentPage === page
+                    ? "active"
+                    : ""
+                }
+                onClick={() =>
+                  setCurrentPage(page)
+                }
               >
                 {page}
               </button>
+
             ))}
 
             <button
               type="button"
               onClick={() =>
-                setCurrentPage((page) => Math.min(5, page + 1))
+                setCurrentPage((page) =>
+                  Math.min(5, page + 1)
+                )
               }
             >
               ›
             </button>
+
           </div>
+
         </div>
+
       </section>
+
     </div>
   );
 }
