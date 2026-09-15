@@ -69,10 +69,16 @@ const Dashboard = () => {
           >
             <span>◉</span> Scans
           </button>
-          <button className="dashboard-nav-item">
+          <button
+             className="dashboard-nav-item"
+             onClick={() => navigate("/vulnerabilities")}
+          >
             <span>♢</span> Vulnerabilities
           </button>
-          <button className="dashboard-nav-item">
+          <button
+             className="dashboard-nav-item"
+             onClick={() => navigate("/threat-intelligence")}
+          >
             <span>◈</span> Threat Intelligence
           </button>
           <button
@@ -81,13 +87,19 @@ const Dashboard = () => {
           >
             <span>▤</span> Reports
           </button>
-          <button className="dashboard-nav-item">
+          <button 
+            className="dashboard-nav-item"
+            onClick={() => navigate("/automation")}
+          >
             <span>⚙</span> Automation
           </button>
           <button className="dashboard-nav-item">
             <span>✣</span> Integrations
           </button>
-          <button className="dashboard-nav-item">
+          <button 
+            className="dashboard-nav-item"
+            onClick={() => navigate("/settings")}
+          >
             <span>⚙</span> Settings
           </button>
         </nav>
