@@ -16,6 +16,7 @@ import Profile from "./components/Profile/Profile";
 import Vulnerabilities from "./components/Vulnerabilities/Vulnerabilities";
 import ThreatIntelligence from "./components/ThreatIntelligence/ThreatIntelligence";
 import Integrations from "./components/Integrations/Integrations";
+import Automation from "./components/Automation/Automation";
 
 
 
@@ -49,6 +50,8 @@ function App() {
         <Route path="/scan-results" element={<ScanResults />} />
 
         <Route path="/reports" element={<Reports />} />
+
+        <Route path="/automation" element={<Automation />} />
 
         <Route path="/settings" element={<Settings />} />
 
