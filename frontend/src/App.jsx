@@ -15,6 +15,7 @@ import Settings from "./components/Settings/Settings";
 import Profile from "./components/Profile/Profile";
 import Vulnerabilities from "./components/Vulnerabilities/Vulnerabilities";
 import ThreatIntelligence from "./components/ThreatIntelligence/ThreatIntelligence";
+import Integrations from "./components/Integrations/Integrations";
 
 
 
@@ -56,6 +57,8 @@ function App() {
         <Route path="/vulnerabilities" element={<Vulnerabilities />} />
 
         <Route path="/threat-intelligence" element={<ThreatIntelligence />} />
+
+        <Route path="/integrations" element={<Integrations />} />
 
       </Routes>
     </BrowserRouter>
